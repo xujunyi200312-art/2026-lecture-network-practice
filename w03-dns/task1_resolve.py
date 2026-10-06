@@ -42,37 +42,111 @@ VERIFY_NAMES = [
 ]
 
 
+import dns.exception, dns.flags, dns.message, dns.name, dns.query, dns.rcode, dns.rdatatype
+
 class Resolver:
-    """Your iterative resolver.
-
-    The whole point is that you never ask a server to recurse for you.
-    You ask one server, it says "not mine, ask over there", and you go there.
-
-    Suggested shape - but it is yours to design:
-
-        resolve(name) -> (address, path)
-            address : the A record you ended up with, as a string
-            path    : the servers you asked, in order, so you can show your work
-
-    Things you will hit, in roughly this order:
-
-    1.  A delegation gives you NS *names*, sometimes with glue A records and
-        sometimes without. No glue means you have to resolve that nameserver's
-        name first - which is another walk. Decide what you do there.
-    2.  A server may not answer. Try the next one rather than giving up.
-    3.  CNAMEs. The answer you get back may be a different name than the one
-        you asked for, and you have to start again with that name.
-    4.  Loops. Cap your depth.
-
-    If you shell out to dig, the flag you want is `+norecurse`, so that the
-    server you ask replies with a delegation instead of doing the work:
-
-        dig @198.41.0.4 www.korea.ac.kr +norecurse
-    """
+    """IPv4 iterative resolver; every outgoing query has RD cleared."""
 
     def resolve(self, name):
-        raise NotImplementedError(
-            "Implement the iterative walk: root -> TLD -> authoritative")
+        self.path = []
+        self.events = []
+        self.visited = set()
+        address = self._resolve(name, 0, frozenset())
+        return address, list(self.path)
+
+    def _resolve(self, name, depth, active):
+        name = dns.name.from_text(name).canonicalize().to_text()
+        if depth > 32 or name in active:
+            raise RuntimeError("CNAME/nameserver loop or depth limit: " + name)
+        return self._walk(name, ROOT_SERVERS, depth, active | {name})
+
+    def _query(self, name, server):
+        if len(self.path) >= 128:
+            raise RuntimeError("Query limit reached")
+        query = dns.message.make_query(name, dns.rdatatype.A)
+        query.flags &= ~dns.flags.RD
+        self.path.append(server)
+        self.events.append({"name": name, "server": server, "transport": "UDP"})
+        response = dns.query.udp(query, server, timeout=2)
+        if response.flags & dns.flags.TC:
+            if len(self.path) >= 128:
+                raise RuntimeError("Query limit reached")
+            self.path.append(server)
+            self.events.append({"name": name, "server": server, "transport": "TCP"})
+            response = dns.query.tcp(query, server, timeout=2)
+        return response
+
+    def _walk(self, name, servers, depth, active, zone="."):
+        if depth > 32:
+            raise RuntimeError("Delegation depth limit reached")
+        errors = []
+        qname = dns.name.from_text(name)
+        parent_zone = dns.name.from_text(zone)
+        for server in servers:
+            key = (name, server)
+            if key in self.visited:
+                continue
+            self.visited.add(key)
+            try:
+                response = self._query(name, server)
+                if response.rcode() != dns.rcode.NOERROR:
+                    raise RuntimeError(dns.rcode.to_text(response.rcode()))
+
+                # Only accept an authoritative answer for the current name.
+                if response.flags & dns.flags.AA:
+                    for rrset in response.answer:
+                        if rrset.name == qname and rrset.rdtype == dns.rdatatype.CNAME:
+                            target = rrset[0].target.to_text()
+                            return self._resolve(target, depth + 1, active)
+                    for rrset in response.answer:
+                        if rrset.name == qname and rrset.rdtype == dns.rdatatype.A:
+                            return rrset[0].address
+                    raise RuntimeError("Authoritative response has no A/CNAME")
+
+                referrals = [r for r in response.authority
+                             if r.rdtype == dns.rdatatype.NS
+                             and qname.is_subdomain(r.name)
+                             and r.name.is_subdomain(parent_zone)
+                             and r.name != parent_zone]
+                if not referrals:
+                    raise RuntimeError("No relevant delegation")
+                referral = max(referrals, key=lambda r: len(r.name.labels))
+                names = [r.target for r in referral]
+
+                # Scope additional addresses to the responding parent zone, not
+                # the child zone. A root referral for .com may legitimately name
+                # a.gtld-servers.net; rejecting that address creates circular
+                # .com/.net nameserver lookups. Still ignore unrelated records.
+                glue = {}
+                for rrset in response.additional:
+                    if (rrset.rdtype == dns.rdatatype.A and rrset.name in names
+                            and rrset.name.is_subdomain(parent_zone)):
+                        glue[rrset.name] = [r.address for r in rrset]
+
+                # Try all available glue addresses before resolving NS names.
+                addresses = list(dict.fromkeys(
+                    ip for ns in names for ip in glue.get(ns, [])))
+                if addresses:
+                    try:
+                        return self._walk(name, addresses, depth + 1, active,
+                                          referral.name.to_text())
+                    except (dns.exception.DNSException, OSError, RuntimeError) as exc:
+                        errors.append(str(exc))
+
+                for ns in names:
+                    if ns in glue:
+                        continue
+                    try:
+                        self.events.append({"no_glue": ns.to_text(), "for": name})
+                        address = self._resolve(ns.to_text(), depth + 1, active)
+                        return self._walk(name, [address], depth + 1, active,
+                                          referral.name.to_text())
+                    except (dns.exception.DNSException, OSError, RuntimeError) as exc:
+                        errors.append(str(exc))
+            except (dns.exception.DNSException, OSError, RuntimeError) as exc:
+                errors.append(server + ": " + str(exc))
+        detail = "; ".join(errors[-3:]) or "all candidates already visited"
+        raise RuntimeError("Could not resolve " + name + ": " + detail)
 
 
 # ------------------------------------------------------------------- harness

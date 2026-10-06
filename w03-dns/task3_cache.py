@@ -64,20 +64,21 @@ class BaselineCache:
 
 
 class YourCache:
-    """Your cache.
-
-    Same interface: __init__(upstream), lookup(name, now) -> address, stats().
-    `upstream(name)` costs a network round trip and returns (address, ttl).
-    The TTL is in seconds and it is the authoritative answer's own TTL -
-    the baseline throws it away.
-    """
-
     def __init__(self, upstream):
         self.upstream = upstream
-        raise NotImplementedError("write your cache")
+        self.entries = {}
 
     def lookup(self, name, now):
-        raise NotImplementedError("write your cache")
+        entry = self.entries.get(name)
+
+        if entry is not None:
+            address, expires_at = entry
+            if now < expires_at:
+                return address
+
+        address, ttl = self.upstream(name)
+        self.entries[name] = (address, now + ttl)
+        return address
 
     def stats(self):
-        return {}
+        return {"entries": len(self.entries)}

@@ -1,0 +1,1954 @@
+{
+  "id": "20261006T102539Z-3b88e8f4",
+  "network": "ethernet",
+  "started_at": "2026-10-06T10:25:39.762639+00:00",
+  "measurements": [
+    {
+      "site": "www.adobe.com",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:25:40.055282+00:00",
+      "chain": [
+        "www.adobe.com",
+        "www.adobe.com.edgesuite.net",
+        "a1319.dscr.akamai.net"
+      ],
+      "hops": [
+        {
+          "from": "www.adobe.com",
+          "to": "www.adobe.com.edgesuite.net",
+          "ttl": 253
+        },
+        {
+          "from": "www.adobe.com.edgesuite.net",
+          "to": "a1319.dscr.akamai.net",
+          "ttl": 21097
+        }
+      ],
+      "addresses": [
+        "182.162.106.139",
+        "182.162.106.144"
+      ],
+      "queries": [
+        {
+          "name": "www.adobe.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:40.055365+00:00",
+          "response": "id 26011\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.adobe.com. IN CNAME\n;ANSWER\nwww.adobe.com. 253 IN CNAME www.adobe.com.edgesuite.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.adobe.com.edgesuite.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:40.100619+00:00",
+          "response": "id 9486\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.adobe.com.edgesuite.net. IN CNAME\n;ANSWER\nwww.adobe.com.edgesuite.net. 21097 IN CNAME a1319.dscr.akamai.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "a1319.dscr.akamai.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:40.151099+00:00",
+          "response": "id 4536\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\na1319.dscr.akamai.net. IN CNAME\n;ANSWER\n;AUTHORITY\ndscr.akamai.net. 1000 IN SOA n0dscr.akamai.net. hostmaster.akamai.com. 1791282344 1000 1000 1000 1800\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.adobe.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:40.201508+00:00",
+          "response": "id 64720\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.adobe.com. IN A\n;ANSWER\nwww.adobe.com. 253 IN CNAME www.adobe.com.edgesuite.net.\nwww.adobe.com.edgesuite.net. 19730 IN CNAME a1319.dscr.akamai.net.\na1319.dscr.akamai.net. 20 IN A 182.162.106.139\na1319.dscr.akamai.net. 20 IN A 182.162.106.144\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "a1319.dscr.akamai.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.adobe.com",
+          "to": "www.adobe.com.edgesuite.net",
+          "ttl": 253
+        },
+        {
+          "from": "www.adobe.com.edgesuite.net",
+          "to": "a1319.dscr.akamai.net",
+          "ttl": 19730
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "a1319.dscr.akamai.net",
+      "finished_at": "2026-10-06T10:25:40.261634+00:00"
+    },
+    {
+      "site": "www.adobe.com",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:25:40.261652+00:00",
+      "chain": [
+        "www.adobe.com"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.adobe.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:40.261716+00:00",
+          "error": "The resolution lifetime expired after 5.406 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.406 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:25:45.668131+00:00"
+    },
+    {
+      "site": "www.adobe.com",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:25:39.926556+00:00",
+      "chain": [
+        "www.adobe.com",
+        "www.adobe.com.edgesuite.net",
+        "a1319.dscr.akamai.net"
+      ],
+      "hops": [
+        {
+          "from": "www.adobe.com",
+          "to": "www.adobe.com.edgesuite.net",
+          "ttl": 98
+        },
+        {
+          "from": "www.adobe.com.edgesuite.net",
+          "to": "a1319.dscr.akamai.net",
+          "ttl": 2107
+        }
+      ],
+      "addresses": [
+        "23.76.153.115",
+        "23.76.153.121"
+      ],
+      "queries": [
+        {
+          "name": "www.adobe.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:39.927337+00:00",
+          "response": "id 17949\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.adobe.com. IN CNAME\n;ANSWER\nwww.adobe.com. 98 IN CNAME www.adobe.com.edgesuite.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.adobe.com.edgesuite.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:41.942979+00:00",
+          "response": "id 47764\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.adobe.com.edgesuite.net. IN CNAME\n;ANSWER\nwww.adobe.com.edgesuite.net. 2107 IN CNAME a1319.dscr.akamai.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "a1319.dscr.akamai.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:43.952995+00:00",
+          "response": "id 45713\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\na1319.dscr.akamai.net. IN CNAME\n;ANSWER\n;AUTHORITY\ndscr.akamai.net. 1000 IN SOA n0dscr.akamai.net. hostmaster.akamai.com. 1791282350 1000 1000 1000 1800\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.adobe.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:45.965733+00:00",
+          "response": "id 50202\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.adobe.com. IN A\n;ANSWER\nwww.adobe.com. 92 IN CNAME www.adobe.com.edgesuite.net.\nwww.adobe.com.edgesuite.net. 19062 IN CNAME a1319.dscr.akamai.net.\na1319.dscr.akamai.net. 12 IN A 23.76.153.115\na1319.dscr.akamai.net. 12 IN A 23.76.153.121\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "a1319.dscr.akamai.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.adobe.com",
+          "to": "www.adobe.com.edgesuite.net",
+          "ttl": 92
+        },
+        {
+          "from": "www.adobe.com.edgesuite.net",
+          "to": "a1319.dscr.akamai.net",
+          "ttl": 19062
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "a1319.dscr.akamai.net",
+      "finished_at": "2026-10-06T10:25:47.982934+00:00"
+    },
+    {
+      "site": "www.apple.com",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:25:45.861131+00:00",
+      "chain": [
+        "www.apple.com",
+        "www-apple-com.v.aaplimg.com",
+        "www.apple.com.edgekey.net",
+        "e6858.dsce9.akamaiedge.net"
+      ],
+      "hops": [
+        {
+          "from": "www.apple.com",
+          "to": "www-apple-com.v.aaplimg.com",
+          "ttl": 32
+        },
+        {
+          "from": "www-apple-com.v.aaplimg.com",
+          "to": "www.apple.com.edgekey.net",
+          "ttl": 300
+        },
+        {
+          "from": "www.apple.com.edgekey.net",
+          "to": "e6858.dsce9.akamaiedge.net",
+          "ttl": 134
+        }
+      ],
+      "addresses": [
+        "23.49.205.28"
+      ],
+      "queries": [
+        {
+          "name": "www.apple.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:45.861204+00:00",
+          "response": "id 47764\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.apple.com. IN CNAME\n;ANSWER\nwww.apple.com. 32 IN CNAME www-apple-com.v.aaplimg.com.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www-apple-com.v.aaplimg.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:45.914293+00:00",
+          "response": "id 18662\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww-apple-com.v.aaplimg.com. IN CNAME\n;ANSWER\nwww-apple-com.v.aaplimg.com. 300 IN CNAME www.apple.com.edgekey.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.apple.com.edgekey.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:45.959443+00:00",
+          "response": "id 24936\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.apple.com.edgekey.net. IN CNAME\n;ANSWER\nwww.apple.com.edgekey.net. 134 IN CNAME e6858.dsce9.akamaiedge.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "e6858.dsce9.akamaiedge.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:46.007086+00:00",
+          "response": "id 31507\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\ne6858.dsce9.akamaiedge.net. IN CNAME\n;ANSWER\n;AUTHORITY\ndsce9.akamaiedge.net. 1000 IN SOA n0dsce9.akamaiedge.net. hostmaster.akamai.com. 1791282350 1000 1000 1000 1800\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.apple.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:46.090322+00:00",
+          "response": "id 22480\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.apple.com. IN A\n;ANSWER\nwww.apple.com. 261 IN CNAME www-apple-com.v.aaplimg.com.\nwww-apple-com.v.aaplimg.com. 300 IN CNAME www.apple.com.edgekey.net.\nwww.apple.com.edgekey.net. 22 IN CNAME e6858.dsce9.akamaiedge.net.\ne6858.dsce9.akamaiedge.net. 20 IN A 23.49.205.28\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "e6858.dsce9.akamaiedge.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.apple.com",
+          "to": "www-apple-com.v.aaplimg.com",
+          "ttl": 261
+        },
+        {
+          "from": "www-apple-com.v.aaplimg.com",
+          "to": "www.apple.com.edgekey.net",
+          "ttl": 300
+        },
+        {
+          "from": "www.apple.com.edgekey.net",
+          "to": "e6858.dsce9.akamaiedge.net",
+          "ttl": 22
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "e6858.dsce9.akamaiedge.net",
+      "finished_at": "2026-10-06T10:25:46.140068+00:00"
+    },
+    {
+      "site": "www.apple.com",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:25:46.140086+00:00",
+      "chain": [
+        "www.apple.com"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.apple.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:46.140148+00:00",
+          "error": "The resolution lifetime expired after 5.411 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.411 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:25:51.551660+00:00"
+    },
+    {
+      "site": "www.apple.com",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:25:45.668173+00:00",
+      "chain": [
+        "www.apple.com",
+        "www-apple-com.v.aaplimg.com",
+        "www.apple.com.edgekey.net",
+        "e6858.dsce9.akamaiedge.net"
+      ],
+      "hops": [
+        {
+          "from": "www.apple.com",
+          "to": "www-apple-com.v.aaplimg.com",
+          "ttl": 234
+        },
+        {
+          "from": "www-apple-com.v.aaplimg.com",
+          "to": "www.apple.com.edgekey.net",
+          "ttl": 275
+        },
+        {
+          "from": "www.apple.com.edgekey.net",
+          "to": "e6858.dsce9.akamaiedge.net",
+          "ttl": 58
+        }
+      ],
+      "addresses": [
+        "104.94.216.37"
+      ],
+      "queries": [
+        {
+          "name": "www.apple.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:45.669598+00:00",
+          "response": "id 63039\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.apple.com. IN CNAME\n;ANSWER\nwww.apple.com. 234 IN CNAME www-apple-com.v.aaplimg.com.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www-apple-com.v.aaplimg.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:47.683269+00:00",
+          "response": "id 7832\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww-apple-com.v.aaplimg.com. IN CNAME\n;ANSWER\nwww-apple-com.v.aaplimg.com. 275 IN CNAME www.apple.com.edgekey.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.apple.com.edgekey.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:49.690236+00:00",
+          "response": "id 61269\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.apple.com.edgekey.net. IN CNAME\n;ANSWER\nwww.apple.com.edgekey.net. 58 IN CNAME e6858.dsce9.akamaiedge.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "e6858.dsce9.akamaiedge.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:51.703965+00:00",
+          "response": "id 40441\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\ne6858.dsce9.akamaiedge.net. IN CNAME\n;ANSWER\n;AUTHORITY\ndsce9.akamaiedge.net. 1000 IN SOA n0dsce9.akamaiedge.net. hostmaster.akamai.com. 1791282358 1000 1000 1000 1800\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.apple.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:53.724878+00:00",
+          "response": "id 33867\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.apple.com. IN A\n;ANSWER\nwww.apple.com. 226 IN CNAME www-apple-com.v.aaplimg.com.\nwww-apple-com.v.aaplimg.com. 269 IN CNAME www.apple.com.edgekey.net.\nwww.apple.com.edgekey.net. 54 IN CNAME e6858.dsce9.akamaiedge.net.\ne6858.dsce9.akamaiedge.net. 2 IN A 104.94.216.37\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "e6858.dsce9.akamaiedge.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.apple.com",
+          "to": "www-apple-com.v.aaplimg.com",
+          "ttl": 226
+        },
+        {
+          "from": "www-apple-com.v.aaplimg.com",
+          "to": "www.apple.com.edgekey.net",
+          "ttl": 269
+        },
+        {
+          "from": "www.apple.com.edgekey.net",
+          "to": "e6858.dsce9.akamaiedge.net",
+          "ttl": 54
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "e6858.dsce9.akamaiedge.net",
+      "finished_at": "2026-10-06T10:25:55.737675+00:00"
+    },
+    {
+      "site": "www.bbc.co.uk",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:25:53.038208+00:00",
+      "chain": [
+        "www.bbc.co.uk",
+        "www.bbc.co.uk.pri.bbc.co.uk",
+        "bbc.map.fastly.net"
+      ],
+      "hops": [
+        {
+          "from": "www.bbc.co.uk",
+          "to": "www.bbc.co.uk.pri.bbc.co.uk",
+          "ttl": 20604
+        },
+        {
+          "from": "www.bbc.co.uk.pri.bbc.co.uk",
+          "to": "bbc.map.fastly.net",
+          "ttl": 300
+        }
+      ],
+      "addresses": [
+        "151.101.0.81",
+        "151.101.128.81",
+        "151.101.192.81",
+        "151.101.64.81"
+      ],
+      "queries": [
+        {
+          "name": "www.bbc.co.uk",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:53.038296+00:00",
+          "response": "id 3446\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.bbc.co.uk. IN CNAME\n;ANSWER\nwww.bbc.co.uk. 20604 IN CNAME www.bbc.co.uk.pri.bbc.co.uk.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.bbc.co.uk.pri.bbc.co.uk",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:53.085393+00:00",
+          "response": "id 2199\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.bbc.co.uk.pri.bbc.co.uk. IN CNAME\n;ANSWER\nwww.bbc.co.uk.pri.bbc.co.uk. 300 IN CNAME bbc.map.fastly.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "bbc.map.fastly.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:53.132777+00:00",
+          "response": "id 60301\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nbbc.map.fastly.net. IN CNAME\n;ANSWER\n;AUTHORITY\nfastly.net. 30 IN SOA ns1.fastly.net. hostmaster.fastly.com. 2017052201 3600 600 604800 30\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.bbc.co.uk",
+          "type": "A",
+          "time": "2026-10-06T10:25:53.180746+00:00",
+          "response": "id 61443\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.bbc.co.uk. IN A\n;ANSWER\nwww.bbc.co.uk. 21539 IN CNAME www.bbc.co.uk.pri.bbc.co.uk.\nwww.bbc.co.uk.pri.bbc.co.uk. 300 IN CNAME bbc.map.fastly.net.\nbbc.map.fastly.net. 48 IN A 151.101.128.81\nbbc.map.fastly.net. 48 IN A 151.101.192.81\nbbc.map.fastly.net. 48 IN A 151.101.0.81\nbbc.map.fastly.net. 48 IN A 151.101.64.81\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "bbc.map.fastly.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.bbc.co.uk",
+          "to": "www.bbc.co.uk.pri.bbc.co.uk",
+          "ttl": 21539
+        },
+        {
+          "from": "www.bbc.co.uk.pri.bbc.co.uk",
+          "to": "bbc.map.fastly.net",
+          "ttl": 300
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "bbc.map.fastly.net",
+      "finished_at": "2026-10-06T10:25:53.227378+00:00"
+    },
+    {
+      "site": "www.bbc.co.uk",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:25:53.227398+00:00",
+      "chain": [
+        "www.bbc.co.uk"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.bbc.co.uk",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:53.227467+00:00",
+          "error": "The resolution lifetime expired after 5.409 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.409 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:25:58.636800+00:00"
+    },
+    {
+      "site": "www.bbc.co.uk",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:25:52.364433+00:00",
+      "chain": [
+        "www.bbc.co.uk",
+        "www.bbc.co.uk.pri.bbc.co.uk",
+        "bbc.map.fastly.net"
+      ],
+      "hops": [
+        {
+          "from": "www.bbc.co.uk",
+          "to": "www.bbc.co.uk.pri.bbc.co.uk",
+          "ttl": 4628
+        },
+        {
+          "from": "www.bbc.co.uk.pri.bbc.co.uk",
+          "to": "bbc.map.fastly.net",
+          "ttl": 60
+        }
+      ],
+      "addresses": [
+        "146.75.48.81"
+      ],
+      "queries": [
+        {
+          "name": "www.bbc.co.uk",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:52.365120+00:00",
+          "response": "id 33202\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.bbc.co.uk. IN CNAME\n;ANSWER\nwww.bbc.co.uk. 4628 IN CNAME www.bbc.co.uk.pri.bbc.co.uk.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.bbc.co.uk.pri.bbc.co.uk",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:54.388036+00:00",
+          "response": "id 8466\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.bbc.co.uk.pri.bbc.co.uk. IN CNAME\n;ANSWER\nwww.bbc.co.uk.pri.bbc.co.uk. 60 IN CNAME bbc.map.fastly.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "bbc.map.fastly.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:56.963040+00:00",
+          "response": "id 64143\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nbbc.map.fastly.net. IN CNAME\n;ANSWER\n;AUTHORITY\nfastly.net. 30 IN SOA ns1.fastly.net. hostmaster.fastly.com. 2017052201 3600 600 604800 30\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.bbc.co.uk",
+          "type": "A",
+          "time": "2026-10-06T10:25:58.970833+00:00",
+          "response": "id 36105\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.bbc.co.uk. IN A\n;ANSWER\nwww.bbc.co.uk. 4621 IN CNAME www.bbc.co.uk.pri.bbc.co.uk.\nwww.bbc.co.uk.pri.bbc.co.uk. 300 IN CNAME bbc.map.fastly.net.\nbbc.map.fastly.net. 3 IN A 146.75.48.81\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "bbc.map.fastly.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.bbc.co.uk",
+          "to": "www.bbc.co.uk.pri.bbc.co.uk",
+          "ttl": 4621
+        },
+        {
+          "from": "www.bbc.co.uk.pri.bbc.co.uk",
+          "to": "bbc.map.fastly.net",
+          "ttl": 300
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "bbc.map.fastly.net",
+      "finished_at": "2026-10-06T10:26:01.082025+00:00"
+    },
+    {
+      "site": "www.cnn.com",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:25:45.177805+00:00",
+      "chain": [
+        "www.cnn.com",
+        "cnn-tls.map.fastly.net"
+      ],
+      "hops": [
+        {
+          "from": "www.cnn.com",
+          "to": "cnn-tls.map.fastly.net",
+          "ttl": 179
+        }
+      ],
+      "addresses": [
+        "151.101.131.5",
+        "151.101.195.5",
+        "151.101.3.5",
+        "151.101.67.5"
+      ],
+      "queries": [
+        {
+          "name": "www.cnn.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:45.177877+00:00",
+          "response": "id 54048\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.cnn.com. IN CNAME\n;ANSWER\nwww.cnn.com. 179 IN CNAME cnn-tls.map.fastly.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "cnn-tls.map.fastly.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:45.224396+00:00",
+          "response": "id 30918\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\ncnn-tls.map.fastly.net. IN CNAME\n;ANSWER\n;AUTHORITY\nfastly.net. 30 IN SOA ns1.fastly.net. hostmaster.fastly.com. 2017052201 3600 600 604800 30\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.cnn.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:45.277014+00:00",
+          "response": "id 830\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.cnn.com. IN A\n;ANSWER\nwww.cnn.com. 163 IN CNAME cnn-tls.map.fastly.net.\ncnn-tls.map.fastly.net. 43 IN A 151.101.131.5\ncnn-tls.map.fastly.net. 43 IN A 151.101.3.5\ncnn-tls.map.fastly.net. 43 IN A 151.101.67.5\ncnn-tls.map.fastly.net. 43 IN A 151.101.195.5\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "cnn-tls.map.fastly.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.cnn.com",
+          "to": "cnn-tls.map.fastly.net",
+          "ttl": 163
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "cnn-tls.map.fastly.net",
+      "finished_at": "2026-10-06T10:25:45.323525+00:00"
+    },
+    {
+      "site": "www.cnn.com",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:25:45.323542+00:00",
+      "chain": [
+        "www.cnn.com"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.cnn.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:45.323606+00:00",
+          "error": "The resolution lifetime expired after 5.403 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.403 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:25:50.727174+00:00"
+    },
+    {
+      "site": "www.cnn.com",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:25:45.177646+00:00",
+      "chain": [
+        "www.cnn.com",
+        "cnn-tls.map.fastly.net"
+      ],
+      "hops": [
+        {
+          "from": "www.cnn.com",
+          "to": "cnn-tls.map.fastly.net",
+          "ttl": 286
+        }
+      ],
+      "addresses": [
+        "146.75.51.5"
+      ],
+      "queries": [
+        {
+          "name": "www.cnn.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:45.179602+00:00",
+          "response": "id 32028\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.cnn.com. IN CNAME\n;ANSWER\nwww.cnn.com. 286 IN CNAME cnn-tls.map.fastly.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "cnn-tls.map.fastly.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:48.998267+00:00",
+          "response": "id 43902\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\ncnn-tls.map.fastly.net. IN CNAME\n;ANSWER\n;AUTHORITY\nfastly.net. 30 IN SOA ns1.fastly.net. hostmaster.fastly.com. 2017052201 3600 600 604800 30\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.cnn.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:51.025586+00:00",
+          "response": "id 41468\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.cnn.com. IN A\n;ANSWER\nwww.cnn.com. 282 IN CNAME cnn-tls.map.fastly.net.\ncnn-tls.map.fastly.net. 60 IN A 146.75.51.5\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "cnn-tls.map.fastly.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.cnn.com",
+          "to": "cnn-tls.map.fastly.net",
+          "ttl": 282
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "cnn-tls.map.fastly.net",
+      "finished_at": "2026-10-06T10:25:53.038185+00:00"
+    },
+    {
+      "site": "www.github.com",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:25:57.412395+00:00",
+      "chain": [
+        "www.github.com",
+        "github.com"
+      ],
+      "hops": [
+        {
+          "from": "www.github.com",
+          "to": "github.com",
+          "ttl": 3600
+        }
+      ],
+      "addresses": [
+        "20.200.245.247"
+      ],
+      "queries": [
+        {
+          "name": "www.github.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:57.412478+00:00",
+          "response": "id 22787\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.github.com. IN CNAME\n;ANSWER\nwww.github.com. 3600 IN CNAME github.com.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "github.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:57.462234+00:00",
+          "response": "id 60082\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\ngithub.com. IN CNAME\n;ANSWER\n;AUTHORITY\ngithub.com. 1160 IN SOA dns1.p08.nsone.net. hostmaster.nsone.net. 1656468023 43200 7200 1209600 3600\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.github.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:57.506755+00:00",
+          "response": "id 52766\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.github.com. IN A\n;ANSWER\nwww.github.com. 3289 IN CNAME github.com.\ngithub.com. 60 IN A 20.200.245.247\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "github.com",
+      "a_answer_aliases": [
+        {
+          "from": "www.github.com",
+          "to": "github.com",
+          "ttl": 3289
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "github.com",
+      "finished_at": "2026-10-06T10:25:57.592012+00:00"
+    },
+    {
+      "site": "www.github.com",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:25:57.592031+00:00",
+      "chain": [
+        "www.github.com"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.github.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:57.592102+00:00",
+          "error": "The resolution lifetime expired after 5.408 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.408 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:26:03.000470+00:00"
+    },
+    {
+      "site": "www.github.com",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:25:57.101563+00:00",
+      "chain": [
+        "www.github.com",
+        "github.com"
+      ],
+      "hops": [
+        {
+          "from": "www.github.com",
+          "to": "github.com",
+          "ttl": 1893
+        }
+      ],
+      "addresses": [
+        "20.200.245.247"
+      ],
+      "queries": [
+        {
+          "name": "www.github.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:57.102972+00:00",
+          "response": "id 19211\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.github.com. IN CNAME\n;ANSWER\nwww.github.com. 1893 IN CNAME github.com.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "github.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:59.114157+00:00",
+          "response": "id 11631\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\ngithub.com. IN CNAME\n;ANSWER\n;AUTHORITY\ngithub.com. 900 IN SOA ns-1707.awsdns-21.co.uk. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.github.com",
+          "type": "A",
+          "time": "2026-10-06T10:26:01.143520+00:00",
+          "response": "id 13411\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.github.com. IN A\n;ANSWER\nwww.github.com. 1889 IN CNAME github.com.\ngithub.com. 3 IN A 20.200.245.247\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "github.com",
+      "a_answer_aliases": [
+        {
+          "from": "www.github.com",
+          "to": "github.com",
+          "ttl": 1889
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "github.com",
+      "finished_at": "2026-10-06T10:26:03.141228+00:00"
+    },
+    {
+      "site": "www.korea.ac.kr",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:25:47.982952+00:00",
+      "chain": [
+        "www.korea.ac.kr"
+      ],
+      "hops": [],
+      "addresses": [
+        "163.152.6.10"
+      ],
+      "queries": [
+        {
+          "name": "www.korea.ac.kr",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:47.983018+00:00",
+          "response": "id 11688\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.korea.ac.kr. IN CNAME\n;ANSWER\n;AUTHORITY\nkorea.ac.kr. 1800 IN SOA kuccgx.korea.ac.kr. root.kuccgx.korea.ac.kr. 2026100601 3600 1800 604800 86400\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.korea.ac.kr",
+          "type": "A",
+          "time": "2026-10-06T10:25:48.092755+00:00",
+          "response": "id 6153\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.korea.ac.kr. IN A\n;ANSWER\nwww.korea.ac.kr. 3600 IN A 163.152.6.10\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "www.korea.ac.kr",
+      "a_answer_aliases": [],
+      "chain_changed_between_queries": false,
+      "final_name": "www.korea.ac.kr",
+      "finished_at": "2026-10-06T10:25:48.221549+00:00"
+    },
+    {
+      "site": "www.korea.ac.kr",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:25:48.221575+00:00",
+      "chain": [
+        "www.korea.ac.kr"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.korea.ac.kr",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:48.221665+00:00",
+          "error": "The resolution lifetime expired after 5.402 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.402 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:25:53.623806+00:00"
+    },
+    {
+      "site": "www.korea.ac.kr",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:25:47.838325+00:00",
+      "chain": [
+        "www.korea.ac.kr"
+      ],
+      "hops": [],
+      "addresses": [
+        "163.152.6.10"
+      ],
+      "queries": [
+        {
+          "name": "www.korea.ac.kr",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:47.839069+00:00",
+          "response": "id 48132\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.korea.ac.kr. IN CNAME\n;ANSWER\n;AUTHORITY\nkorea.ac.kr. 3600 IN SOA kuccgx.korea.ac.kr. root.kuccgx.korea.ac.kr. 2026100601 3600 1800 604800 86400\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.korea.ac.kr",
+          "type": "A",
+          "time": "2026-10-06T10:25:50.346439+00:00",
+          "response": "id 53545\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.korea.ac.kr. IN A\n;ANSWER\nwww.korea.ac.kr. 2573 IN A 163.152.6.10\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "www.korea.ac.kr",
+      "a_answer_aliases": [],
+      "chain_changed_between_queries": false,
+      "final_name": "www.korea.ac.kr",
+      "finished_at": "2026-10-06T10:25:52.364416+00:00"
+    },
+    {
+      "site": "www.microsoft.com",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:25:39.771812+00:00",
+      "chain": [
+        "www.microsoft.com",
+        "www.microsoft.com-c-3.edgekey.net",
+        "e13678.dscb.akamaiedge.net"
+      ],
+      "hops": [
+        {
+          "from": "www.microsoft.com",
+          "to": "www.microsoft.com-c-3.edgekey.net",
+          "ttl": 2191
+        },
+        {
+          "from": "www.microsoft.com-c-3.edgekey.net",
+          "to": "e13678.dscb.akamaiedge.net",
+          "ttl": 782
+        }
+      ],
+      "addresses": [
+        "104.94.218.45"
+      ],
+      "queries": [
+        {
+          "name": "www.microsoft.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:39.771925+00:00",
+          "response": "id 62287\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.microsoft.com. IN CNAME\n;ANSWER\nwww.microsoft.com. 2191 IN CNAME www.microsoft.com-c-3.edgekey.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.microsoft.com-c-3.edgekey.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:39.825438+00:00",
+          "response": "id 24303\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.microsoft.com-c-3.edgekey.net. IN CNAME\n;ANSWER\nwww.microsoft.com-c-3.edgekey.net. 782 IN CNAME e13678.dscb.akamaiedge.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "e13678.dscb.akamaiedge.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:39.869698+00:00",
+          "response": "id 55085\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\ne13678.dscb.akamaiedge.net. IN CNAME\n;ANSWER\n;AUTHORITY\ndscb.akamaiedge.net. 1000 IN SOA n0dscb.akamaiedge.net. hostmaster.akamai.com. 1791282344 1000 1000 1000 1800\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.microsoft.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:39.916944+00:00",
+          "response": "id 24243\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.microsoft.com. IN A\n;ANSWER\nwww.microsoft.com. 3462 IN CNAME www.microsoft.com-c-3.edgekey.net.\nwww.microsoft.com-c-3.edgekey.net. 807 IN CNAME e13678.dscb.akamaiedge.net.\ne13678.dscb.akamaiedge.net. 20 IN A 104.94.218.45\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "e13678.dscb.akamaiedge.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.microsoft.com",
+          "to": "www.microsoft.com-c-3.edgekey.net",
+          "ttl": 3462
+        },
+        {
+          "from": "www.microsoft.com-c-3.edgekey.net",
+          "to": "e13678.dscb.akamaiedge.net",
+          "ttl": 807
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "e13678.dscb.akamaiedge.net",
+      "finished_at": "2026-10-06T10:25:40.055255+00:00"
+    },
+    {
+      "site": "www.microsoft.com",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:25:39.772553+00:00",
+      "chain": [
+        "www.microsoft.com"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.microsoft.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:39.772651+00:00",
+          "error": "The resolution lifetime expired after 5.405 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.405 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:25:45.177791+00:00"
+    },
+    {
+      "site": "www.microsoft.com",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:25:39.771401+00:00",
+      "chain": [
+        "www.microsoft.com",
+        "www.microsoft.com-c-3.edgekey.net",
+        "e13678.dscb.akamaiedge.net"
+      ],
+      "hops": [
+        {
+          "from": "www.microsoft.com",
+          "to": "www.microsoft.com-c-3.edgekey.net",
+          "ttl": 1491
+        },
+        {
+          "from": "www.microsoft.com-c-3.edgekey.net",
+          "to": "e13678.dscb.akamaiedge.net",
+          "ttl": 631
+        }
+      ],
+      "addresses": [
+        "104.94.218.45"
+      ],
+      "queries": [
+        {
+          "name": "www.microsoft.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:39.775251+00:00",
+          "response": "id 36637\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.microsoft.com. IN CNAME\n;ANSWER\nwww.microsoft.com. 1491 IN CNAME www.microsoft.com-c-3.edgekey.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.microsoft.com-c-3.edgekey.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:41.793631+00:00",
+          "response": "id 7838\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.microsoft.com-c-3.edgekey.net. IN CNAME\n;ANSWER\nwww.microsoft.com-c-3.edgekey.net. 631 IN CNAME e13678.dscb.akamaiedge.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "e13678.dscb.akamaiedge.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:43.804716+00:00",
+          "response": "id 25659\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\ne13678.dscb.akamaiedge.net. IN CNAME\n;ANSWER\n;AUTHORITY\ndscb.akamaiedge.net. 1000 IN SOA n0dscb.akamaiedge.net. hostmaster.akamai.com. 1791282350 1000 1000 1000 1800\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.microsoft.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:45.822994+00:00",
+          "response": "id 35486\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.microsoft.com. IN A\n;ANSWER\nwww.microsoft.com. 1485 IN CNAME www.microsoft.com-c-3.edgekey.net.\nwww.microsoft.com-c-3.edgekey.net. 627 IN CNAME e13678.dscb.akamaiedge.net.\ne13678.dscb.akamaiedge.net. 13 IN A 104.94.218.45\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "e13678.dscb.akamaiedge.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.microsoft.com",
+          "to": "www.microsoft.com-c-3.edgekey.net",
+          "ttl": 1485
+        },
+        {
+          "from": "www.microsoft.com-c-3.edgekey.net",
+          "to": "e13678.dscb.akamaiedge.net",
+          "ttl": 627
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "e13678.dscb.akamaiedge.net",
+      "finished_at": "2026-10-06T10:25:47.838305+00:00"
+    },
+    {
+      "site": "www.netflix.com",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:25:39.773680+00:00",
+      "chain": [
+        "www.netflix.com",
+        "www.prod.ftl.netflix.com"
+      ],
+      "hops": [
+        {
+          "from": "www.netflix.com",
+          "to": "www.prod.ftl.netflix.com",
+          "ttl": 33
+        }
+      ],
+      "addresses": [
+        "207.45.72.1",
+        "207.45.73.1"
+      ],
+      "queries": [
+        {
+          "name": "www.netflix.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:39.773760+00:00",
+          "response": "id 29395\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.netflix.com. IN CNAME\n;ANSWER\nwww.netflix.com. 33 IN CNAME www.prod.ftl.netflix.com.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.prod.ftl.netflix.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:39.826076+00:00",
+          "response": "id 33404\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.prod.ftl.netflix.com. IN CNAME\n;ANSWER\n;AUTHORITY\nprod.ftl.netflix.com. 900 IN SOA e.ns.nflxso.net. nicadmin.netflix.com. 1791281921 16384 2048 1048576 60\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.netflix.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:39.875461+00:00",
+          "response": "id 43742\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.netflix.com. IN A\n;ANSWER\nwww.netflix.com. 33 IN CNAME www.prod.ftl.netflix.com.\nwww.prod.ftl.netflix.com. 33 IN A 207.45.72.1\nwww.prod.ftl.netflix.com. 33 IN A 207.45.73.1\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "www.prod.ftl.netflix.com",
+      "a_answer_aliases": [
+        {
+          "from": "www.netflix.com",
+          "to": "www.prod.ftl.netflix.com",
+          "ttl": 33
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "www.prod.ftl.netflix.com",
+      "finished_at": "2026-10-06T10:25:39.926533+00:00"
+    },
+    {
+      "site": "www.netflix.com",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:25:39.774186+00:00",
+      "chain": [
+        "www.netflix.com"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.netflix.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:39.774279+00:00",
+          "error": "The resolution lifetime expired after 5.403 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.403 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:25:45.177622+00:00"
+    },
+    {
+      "site": "www.netflix.com",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:25:39.773063+00:00",
+      "chain": [
+        "www.netflix.com",
+        "www.prod.ftl.netflix.com"
+      ],
+      "hops": [
+        {
+          "from": "www.netflix.com",
+          "to": "www.prod.ftl.netflix.com",
+          "ttl": 28
+        }
+      ],
+      "addresses": [
+        "207.45.72.1",
+        "207.45.73.1"
+      ],
+      "queries": [
+        {
+          "name": "www.netflix.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:39.775697+00:00",
+          "response": "id 8617\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.netflix.com. IN CNAME\n;ANSWER\nwww.netflix.com. 28 IN CNAME www.prod.ftl.netflix.com.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.prod.ftl.netflix.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:41.793805+00:00",
+          "response": "id 18153\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.prod.ftl.netflix.com. IN CNAME\n;ANSWER\n;AUTHORITY\nprod.ftl.netflix.com. 900 IN SOA e.ns.nflxso.net. nicadmin.netflix.com. 1791281955 16384 2048 1048576 60\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.netflix.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:43.839632+00:00",
+          "response": "id 53053\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.netflix.com. IN A\n;ANSWER\nwww.netflix.com. 50 IN CNAME www.prod.ftl.netflix.com.\nwww.prod.ftl.netflix.com. 47 IN A 207.45.72.1\nwww.prod.ftl.netflix.com. 47 IN A 207.45.73.1\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "www.prod.ftl.netflix.com",
+      "a_answer_aliases": [
+        {
+          "from": "www.netflix.com",
+          "to": "www.prod.ftl.netflix.com",
+          "ttl": 50
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "www.prod.ftl.netflix.com",
+      "finished_at": "2026-10-06T10:25:45.861116+00:00"
+    },
+    {
+      "site": "www.nytimes.com",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:26:01.291677+00:00",
+      "chain": [
+        "www.nytimes.com",
+        "www.prd.map.nytimes.com",
+        "www.prd.map.nytimes.xovr.nyt.net",
+        "nytimes.map.fastly.net"
+      ],
+      "hops": [
+        {
+          "from": "www.nytimes.com",
+          "to": "www.prd.map.nytimes.com",
+          "ttl": 218
+        },
+        {
+          "from": "www.prd.map.nytimes.com",
+          "to": "www.prd.map.nytimes.xovr.nyt.net",
+          "ttl": 405
+        },
+        {
+          "from": "www.prd.map.nytimes.xovr.nyt.net",
+          "to": "nytimes.map.fastly.net",
+          "ttl": 299
+        }
+      ],
+      "addresses": [
+        "151.101.1.164",
+        "151.101.129.164",
+        "151.101.193.164",
+        "151.101.65.164"
+      ],
+      "queries": [
+        {
+          "name": "www.nytimes.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:01.291773+00:00",
+          "response": "id 22378\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.nytimes.com. IN CNAME\n;ANSWER\nwww.nytimes.com. 218 IN CNAME www.prd.map.nytimes.com.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.prd.map.nytimes.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:01.337767+00:00",
+          "response": "id 16168\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.prd.map.nytimes.com. IN CNAME\n;ANSWER\nwww.prd.map.nytimes.com. 405 IN CNAME www.prd.map.nytimes.xovr.nyt.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.prd.map.nytimes.xovr.nyt.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:01.383457+00:00",
+          "response": "id 23856\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.prd.map.nytimes.xovr.nyt.net. IN CNAME\n;ANSWER\nwww.prd.map.nytimes.xovr.nyt.net. 299 IN CNAME nytimes.map.fastly.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "nytimes.map.fastly.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:01.430298+00:00",
+          "response": "id 39099\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nnytimes.map.fastly.net. IN CNAME\n;ANSWER\n;AUTHORITY\nfastly.net. 30 IN SOA ns1.fastly.net. hostmaster.fastly.com. 2017052201 3600 600 604800 30\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.nytimes.com",
+          "type": "A",
+          "time": "2026-10-06T10:26:01.477223+00:00",
+          "response": "id 24557\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.nytimes.com. IN A\n;ANSWER\nwww.nytimes.com. 11 IN CNAME www.prd.map.nytimes.com.\nwww.prd.map.nytimes.com. 258 IN CNAME www.prd.map.nytimes.xovr.nyt.net.\nwww.prd.map.nytimes.xovr.nyt.net. 461 IN CNAME nytimes.map.fastly.net.\nnytimes.map.fastly.net. 4 IN A 151.101.193.164\nnytimes.map.fastly.net. 4 IN A 151.101.1.164\nnytimes.map.fastly.net. 4 IN A 151.101.129.164\nnytimes.map.fastly.net. 4 IN A 151.101.65.164\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "nytimes.map.fastly.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.nytimes.com",
+          "to": "www.prd.map.nytimes.com",
+          "ttl": 11
+        },
+        {
+          "from": "www.prd.map.nytimes.com",
+          "to": "www.prd.map.nytimes.xovr.nyt.net",
+          "ttl": 258
+        },
+        {
+          "from": "www.prd.map.nytimes.xovr.nyt.net",
+          "to": "nytimes.map.fastly.net",
+          "ttl": 461
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "nytimes.map.fastly.net",
+      "finished_at": "2026-10-06T10:26:01.524674+00:00"
+    },
+    {
+      "site": "www.nytimes.com",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:26:01.524694+00:00",
+      "chain": [
+        "www.nytimes.com"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.nytimes.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:01.524764+00:00",
+          "error": "The resolution lifetime expired after 5.408 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.408 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:26:06.933164+00:00"
+    },
+    {
+      "site": "www.nytimes.com",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:26:01.082041+00:00",
+      "chain": [
+        "www.nytimes.com",
+        "www.prd.map.nytimes.com",
+        "www.prd.map.nytimes.xovr.nyt.net",
+        "nytimes.map.fastly.net"
+      ],
+      "hops": [
+        {
+          "from": "www.nytimes.com",
+          "to": "www.prd.map.nytimes.com",
+          "ttl": 144
+        },
+        {
+          "from": "www.prd.map.nytimes.com",
+          "to": "www.prd.map.nytimes.xovr.nyt.net",
+          "ttl": 65
+        },
+        {
+          "from": "www.prd.map.nytimes.xovr.nyt.net",
+          "to": "nytimes.map.fastly.net",
+          "ttl": 568
+        }
+      ],
+      "addresses": [
+        "146.75.49.164"
+      ],
+      "queries": [
+        {
+          "name": "www.nytimes.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:01.082733+00:00",
+          "response": "id 9389\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.nytimes.com. IN CNAME\n;ANSWER\nwww.nytimes.com. 144 IN CNAME www.prd.map.nytimes.com.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.prd.map.nytimes.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:03.093990+00:00",
+          "response": "id 52660\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.prd.map.nytimes.com. IN CNAME\n;ANSWER\nwww.prd.map.nytimes.com. 65 IN CNAME www.prd.map.nytimes.xovr.nyt.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.prd.map.nytimes.xovr.nyt.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:05.117884+00:00",
+          "response": "id 59696\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.prd.map.nytimes.xovr.nyt.net. IN CNAME\n;ANSWER\nwww.prd.map.nytimes.xovr.nyt.net. 568 IN CNAME nytimes.map.fastly.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "nytimes.map.fastly.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:07.132476+00:00",
+          "response": "id 21254\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nnytimes.map.fastly.net. IN CNAME\n;ANSWER\n;AUTHORITY\nfastly.net. 30 IN SOA ns1.fastly.net. hostmaster.fastly.com. 2017052201 3600 600 604800 30\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.nytimes.com",
+          "type": "A",
+          "time": "2026-10-06T10:26:10.885906+00:00",
+          "response": "id 43310\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.nytimes.com. IN A\n;ANSWER\nwww.nytimes.com. 595 IN CNAME www.prd.map.nytimes.com.\nwww.prd.map.nytimes.com. 57 IN CNAME www.prd.map.nytimes.xovr.nyt.net.\nwww.prd.map.nytimes.xovr.nyt.net. 562 IN CNAME nytimes.map.fastly.net.\nnytimes.map.fastly.net. 22 IN A 146.75.49.164\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "nytimes.map.fastly.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.nytimes.com",
+          "to": "www.prd.map.nytimes.com",
+          "ttl": 595
+        },
+        {
+          "from": "www.prd.map.nytimes.com",
+          "to": "www.prd.map.nytimes.xovr.nyt.net",
+          "ttl": 57
+        },
+        {
+          "from": "www.prd.map.nytimes.xovr.nyt.net",
+          "to": "nytimes.map.fastly.net",
+          "ttl": 562
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "nytimes.map.fastly.net",
+      "finished_at": "2026-10-06T10:26:12.902329+00:00"
+    },
+    {
+      "site": "www.spotify.com",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:25:55.737694+00:00",
+      "chain": [
+        "www.spotify.com",
+        "atc.spotify.map.fastly.net"
+      ],
+      "hops": [
+        {
+          "from": "www.spotify.com",
+          "to": "atc.spotify.map.fastly.net",
+          "ttl": 101
+        }
+      ],
+      "addresses": [
+        "151.101.131.42",
+        "151.101.195.42",
+        "151.101.3.42",
+        "151.101.67.42"
+      ],
+      "queries": [
+        {
+          "name": "www.spotify.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:55.737769+00:00",
+          "response": "id 24199\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.spotify.com. IN CNAME\n;ANSWER\nwww.spotify.com. 101 IN CNAME atc.spotify.map.fastly.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "atc.spotify.map.fastly.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:55.783546+00:00",
+          "response": "id 58285\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\natc.spotify.map.fastly.net. IN CNAME\n;ANSWER\n;AUTHORITY\nfastly.net. 30 IN SOA ns1.fastly.net. hostmaster.fastly.com. 2017052201 3600 600 604800 30\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.spotify.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:55.837078+00:00",
+          "response": "id 21588\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.spotify.com. IN A\n;ANSWER\nwww.spotify.com. 204 IN CNAME atc.spotify.map.fastly.net.\natc.spotify.map.fastly.net. 32 IN A 151.101.195.42\natc.spotify.map.fastly.net. 32 IN A 151.101.131.42\natc.spotify.map.fastly.net. 32 IN A 151.101.67.42\natc.spotify.map.fastly.net. 32 IN A 151.101.3.42\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "atc.spotify.map.fastly.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.spotify.com",
+          "to": "atc.spotify.map.fastly.net",
+          "ttl": 204
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "atc.spotify.map.fastly.net",
+      "finished_at": "2026-10-06T10:25:55.884123+00:00"
+    },
+    {
+      "site": "www.spotify.com",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:25:55.884142+00:00",
+      "chain": [
+        "www.spotify.com"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.spotify.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:55.884208+00:00",
+          "error": "The resolution lifetime expired after 5.407 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.407 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:26:01.291651+00:00"
+    },
+    {
+      "site": "www.spotify.com",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:25:53.623839+00:00",
+      "chain": [
+        "www.spotify.com",
+        "atc.spotify.map.fastly.net"
+      ],
+      "hops": [
+        {
+          "from": "www.spotify.com",
+          "to": "atc.spotify.map.fastly.net",
+          "ttl": 165
+        }
+      ],
+      "addresses": [
+        "146.75.51.42"
+      ],
+      "queries": [
+        {
+          "name": "www.spotify.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:53.625304+00:00",
+          "response": "id 13554\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.spotify.com. IN CNAME\n;ANSWER\nwww.spotify.com. 165 IN CNAME atc.spotify.map.fastly.net.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "atc.spotify.map.fastly.net",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:55.639278+00:00",
+          "response": "id 37400\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\natc.spotify.map.fastly.net. IN CNAME\n;ANSWER\n;AUTHORITY\nfastly.net. 30 IN SOA ns1.fastly.net. hostmaster.fastly.com. 2017052201 3600 600 604800 30\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.spotify.com",
+          "type": "A",
+          "time": "2026-10-06T10:25:58.765693+00:00",
+          "response": "id 31518\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.spotify.com. IN A\n;ANSWER\nwww.spotify.com. 160 IN CNAME atc.spotify.map.fastly.net.\natc.spotify.map.fastly.net. 22 IN A 146.75.51.42\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "atc.spotify.map.fastly.net",
+      "a_answer_aliases": [
+        {
+          "from": "www.spotify.com",
+          "to": "atc.spotify.map.fastly.net",
+          "ttl": 160
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "atc.spotify.map.fastly.net",
+      "finished_at": "2026-10-06T10:26:00.790292+00:00"
+    },
+    {
+      "site": "www.stanford.edu",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:25:51.551698+00:00",
+      "chain": [
+        "www.stanford.edu",
+        "stanford.netlifyglobalcdn.com"
+      ],
+      "hops": [
+        {
+          "from": "www.stanford.edu",
+          "to": "stanford.netlifyglobalcdn.com",
+          "ttl": 767
+        }
+      ],
+      "addresses": [
+        "15.197.167.90",
+        "3.33.186.135"
+      ],
+      "queries": [
+        {
+          "name": "www.stanford.edu",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:51.551822+00:00",
+          "response": "id 16636\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.stanford.edu. IN CNAME\n;ANSWER\nwww.stanford.edu. 767 IN CNAME stanford.netlifyglobalcdn.com.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "stanford.netlifyglobalcdn.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:51.599599+00:00",
+          "response": "id 10434\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nstanford.netlifyglobalcdn.com. IN CNAME\n;ANSWER\n;AUTHORITY\nnetlifyglobalcdn.com. 300 IN SOA dns1.p02.nsone.net. hostmaster.nsone.net. 1664458602 43200 7200 1209600 300\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.stanford.edu",
+          "type": "A",
+          "time": "2026-10-06T10:25:51.650274+00:00",
+          "response": "id 27770\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.stanford.edu. IN A\n;ANSWER\nwww.stanford.edu. 27 IN CNAME stanford.netlifyglobalcdn.com.\nstanford.netlifyglobalcdn.com. 263 IN A 3.33.186.135\nstanford.netlifyglobalcdn.com. 263 IN A 15.197.167.90\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "stanford.netlifyglobalcdn.com",
+      "a_answer_aliases": [
+        {
+          "from": "www.stanford.edu",
+          "to": "stanford.netlifyglobalcdn.com",
+          "ttl": 27
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "stanford.netlifyglobalcdn.com",
+      "finished_at": "2026-10-06T10:25:51.699526+00:00"
+    },
+    {
+      "site": "www.stanford.edu",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:25:51.699546+00:00",
+      "chain": [
+        "www.stanford.edu"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.stanford.edu",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:51.699617+00:00",
+          "error": "The resolution lifetime expired after 5.402 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.402 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:25:57.101530+00:00"
+    },
+    {
+      "site": "www.stanford.edu",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:25:50.727209+00:00",
+      "chain": [
+        "www.stanford.edu",
+        "stanford.netlifyglobalcdn.com"
+      ],
+      "hops": [
+        {
+          "from": "www.stanford.edu",
+          "to": "stanford.netlifyglobalcdn.com",
+          "ttl": 1735
+        }
+      ],
+      "addresses": [
+        "15.197.167.90",
+        "3.33.186.135"
+      ],
+      "queries": [
+        {
+          "name": "www.stanford.edu",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:50.728669+00:00",
+          "response": "id 39249\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.stanford.edu. IN CNAME\n;ANSWER\nwww.stanford.edu. 1735 IN CNAME stanford.netlifyglobalcdn.com.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "stanford.netlifyglobalcdn.com",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:53.264480+00:00",
+          "response": "id 21029\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nstanford.netlifyglobalcdn.com. IN CNAME\n;ANSWER\n;AUTHORITY\nnetlifyglobalcdn.com. 300 IN SOA dns1.p02.nsone.net. hostmaster.nsone.net. 1664458602 43200 7200 1209600 300\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.stanford.edu",
+          "type": "A",
+          "time": "2026-10-06T10:25:55.362216+00:00",
+          "response": "id 9492\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.stanford.edu. IN A\n;ANSWER\nwww.stanford.edu. 1730 IN CNAME stanford.netlifyglobalcdn.com.\nstanford.netlifyglobalcdn.com. 231 IN A 15.197.167.90\nstanford.netlifyglobalcdn.com. 231 IN A 3.33.186.135\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "stanford.netlifyglobalcdn.com",
+      "a_answer_aliases": [
+        {
+          "from": "www.stanford.edu",
+          "to": "stanford.netlifyglobalcdn.com",
+          "ttl": 1730
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "stanford.netlifyglobalcdn.com",
+      "finished_at": "2026-10-06T10:25:57.412377+00:00"
+    },
+    {
+      "site": "www.wikipedia.org",
+      "resolver": "google",
+      "started_at": "2026-10-06T10:26:00.790317+00:00",
+      "chain": [
+        "www.wikipedia.org",
+        "dyna.wikimedia.org"
+      ],
+      "hops": [
+        {
+          "from": "www.wikipedia.org",
+          "to": "dyna.wikimedia.org",
+          "ttl": 20078
+        }
+      ],
+      "addresses": [
+        "103.102.166.224"
+      ],
+      "queries": [
+        {
+          "name": "www.wikipedia.org",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:00.790405+00:00",
+          "response": "id 5346\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.wikipedia.org. IN CNAME\n;ANSWER\nwww.wikipedia.org. 20078 IN CNAME dyna.wikimedia.org.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "dyna.wikimedia.org",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:00.837260+00:00",
+          "response": "id 35405\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\ndyna.wikimedia.org. IN CNAME\n;ANSWER\n;AUTHORITY\nwikimedia.org. 600 IN SOA ns0.wikimedia.org. hostmaster.wikimedia.org. 2026100507 43200 7200 1209600 600\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        },
+        {
+          "name": "www.wikipedia.org",
+          "type": "A",
+          "time": "2026-10-06T10:26:00.919568+00:00",
+          "response": "id 51968\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.wikipedia.org. IN A\n;ANSWER\nwww.wikipedia.org. 21278 IN CNAME dyna.wikimedia.org.\ndyna.wikimedia.org. 162 IN A 103.102.166.224\n;AUTHORITY\n;ADDITIONAL",
+          "server": "8.8.8.8"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "8.8.8.8"
+      ],
+      "address_canonical_name": "dyna.wikimedia.org",
+      "a_answer_aliases": [
+        {
+          "from": "www.wikipedia.org",
+          "to": "dyna.wikimedia.org",
+          "ttl": 21278
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "dyna.wikimedia.org",
+      "finished_at": "2026-10-06T10:26:00.964994+00:00"
+    },
+    {
+      "site": "www.wikipedia.org",
+      "resolver": "quad9",
+      "started_at": "2026-10-06T10:26:00.965012+00:00",
+      "chain": [
+        "www.wikipedia.org"
+      ],
+      "hops": [],
+      "addresses": [],
+      "queries": [
+        {
+          "name": "www.wikipedia.org",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:00.965079+00:00",
+          "error": "The resolution lifetime expired after 5.403 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out."
+        }
+      ],
+      "status": "error",
+      "configured_nameservers": [
+        "9.9.9.9"
+      ],
+      "error": "LifetimeTimeout: The resolution lifetime expired after 5.403 seconds: Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.; Server Do53:9.9.9.9@53 answered The DNS operation timed out.",
+      "finished_at": "2026-10-06T10:26:06.368512+00:00"
+    },
+    {
+      "site": "www.wikipedia.org",
+      "resolver": "system",
+      "started_at": "2026-10-06T10:25:58.636929+00:00",
+      "chain": [
+        "www.wikipedia.org",
+        "dyna.wikimedia.org"
+      ],
+      "hops": [
+        {
+          "from": "www.wikipedia.org",
+          "to": "dyna.wikimedia.org",
+          "ttl": 63426
+        }
+      ],
+      "addresses": [
+        "103.102.166.224"
+      ],
+      "queries": [
+        {
+          "name": "www.wikipedia.org",
+          "type": "CNAME",
+          "time": "2026-10-06T10:25:58.638359+00:00",
+          "response": "id 27998\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.wikipedia.org. IN CNAME\n;ANSWER\nwww.wikipedia.org. 63426 IN CNAME dyna.wikimedia.org.\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "dyna.wikimedia.org",
+          "type": "CNAME",
+          "time": "2026-10-06T10:26:00.648446+00:00",
+          "response": "id 14295\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\ndyna.wikimedia.org. IN CNAME\n;ANSWER\n;AUTHORITY\nwikimedia.org. 600 IN SOA ns0.wikimedia.org. hostmaster.wikimedia.org. 2026100507 43200 7200 1209600 600\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        },
+        {
+          "name": "www.wikipedia.org",
+          "type": "A",
+          "time": "2026-10-06T10:26:02.723120+00:00",
+          "response": "id 14284\nopcode QUERY\nrcode NOERROR\nflags QR RD RA\n;QUESTION\nwww.wikipedia.org. IN A\n;ANSWER\nwww.wikipedia.org. 41828 IN CNAME dyna.wikimedia.org.\ndyna.wikimedia.org. 126 IN A 103.102.166.224\n;AUTHORITY\n;ADDITIONAL",
+          "server": "168.126.63.1"
+        }
+      ],
+      "status": "ok",
+      "configured_nameservers": [
+        "163.152.213.9",
+        "168.126.63.1",
+        "168.126.63.2",
+        "192.168.219.1",
+        "114.114.114.114",
+        "223.5.5.5"
+      ],
+      "address_canonical_name": "dyna.wikimedia.org",
+      "a_answer_aliases": [
+        {
+          "from": "www.wikipedia.org",
+          "to": "dyna.wikimedia.org",
+          "ttl": 41828
+        }
+      ],
+      "chain_changed_between_queries": false,
+      "final_name": "dyna.wikimedia.org",
+      "finished_at": "2026-10-06T10:26:04.740370+00:00"
+    }
+  ],
+  "finished_at": "2026-10-06T10:26:12.902816+00:00"
+}

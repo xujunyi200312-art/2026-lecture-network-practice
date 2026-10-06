@@ -1,0 +1,62 @@
+{
+  "www.microsoft.com": {
+    "cdn": true,
+    "third_party": true,
+    "reason": "Observed edgekey.net/edgesuite.net chain identifies Akamai as a third-party CDN. [Akamai edge-hostname documentation](https://techdocs.akamai.com/edge-hostnames/docs/edge-hn-terminology)"
+  },
+  "www.adobe.com": {
+    "cdn": true,
+    "third_party": true,
+    "reason": "Observed edgekey.net/edgesuite.net chain identifies Akamai as a third-party CDN. [Akamai edge-hostname documentation](https://techdocs.akamai.com/edge-hostnames/docs/edge-hn-terminology)"
+  },
+  "www.apple.com": {
+    "cdn": true,
+    "third_party": true,
+    "reason": "Observed edgekey.net/edgesuite.net chain identifies Akamai as a third-party CDN. [Akamai edge-hostname documentation](https://techdocs.akamai.com/edge-hostnames/docs/edge-hn-terminology)"
+  },
+  "www.cnn.com": {
+    "cdn": true,
+    "third_party": true,
+    "reason": "Observed map.fastly.net chain identifies a third-party Fastly CDN endpoint. [Fastly routing documentation](https://www.fastly.com/documentation/guides/concepts/routing-traffic-to-fastly/)"
+  },
+  "www.bbc.co.uk": {
+    "cdn": true,
+    "third_party": true,
+    "reason": "Observed map.fastly.net chain identifies a third-party Fastly CDN endpoint. [Fastly routing documentation](https://www.fastly.com/documentation/guides/concepts/routing-traffic-to-fastly/)"
+  },
+  "www.spotify.com": {
+    "cdn": true,
+    "third_party": true,
+    "reason": "Observed map.fastly.net chain identifies a third-party Fastly CDN endpoint. [Fastly routing documentation](https://www.fastly.com/documentation/guides/concepts/routing-traffic-to-fastly/)"
+  },
+  "www.nytimes.com": {
+    "cdn": true,
+    "third_party": true,
+    "reason": "Observed map.fastly.net chain identifies a third-party Fastly CDN endpoint. [Fastly routing documentation](https://www.fastly.com/documentation/guides/concepts/routing-traffic-to-fastly/)"
+  },
+  "www.stanford.edu": {
+    "cdn": true,
+    "third_party": true,
+    "reason": "Observed stanford.netlifyglobalcdn.com points to Netlify, a third-party CDN provider. [Netlify support discussion](https://answers.netlify.com/t/how-can-i-change-which-netlify-site-my-hostname-is-pointing-to/3259)."
+  },
+  "www.netflix.com": {
+    "cdn": true,
+    "third_party": false,
+    "reason": "First-party classification follows [course Task 2](https://github.com/codingchild2424/2026-lecture-network-practice/blob/main/w03-dns/task2.md). The chain stays in netflix.com. [Netflix Open Connect](https://openconnect.netflix.com/Open-Connect-Briefing-Paper.pdf) documents its own video CDN; querying www.netflix.com does not itself measure video delivery or prove this web endpoint is Open Connect."
+  },
+  "www.wikipedia.org": {
+    "cdn": true,
+    "third_party": false,
+    "reason": "The chain ends at dyna.wikimedia.org. Wikipedia is a [Wikimedia project](https://www.wikimedia.org/), and Wikimedia operates its own CDN: [Wikimedia CDN documentation](https://wikitech.wikimedia.org/wiki/CDN). Different domain suffixes do not imply a different organization. This is the observed false positive of the rule."
+  },
+  "www.korea.ac.kr": {
+    "cdn": false,
+    "third_party": false,
+    "reason": "No CNAME in these measurements, and [course Task 2](https://github.com/codingchild2424/2026-lecture-network-practice/blob/main/w03-dns/task2.md) identifies this site as non-CDN. No-CNAME alone would not establish that for arbitrary sites."
+  },
+  "www.github.com": {
+    "cdn": null,
+    "third_party": null,
+    "reason": "Observed chain remains within github.com. DNS alone does not establish whether this endpoint uses an external CDN or a first-party distributed frontend. CDN/third-party status remains unconfirmed, so this site is excluded from the CDN-only denominator; its address variation is retained in the all-sites comparison."
+  }
+}
