@@ -11,7 +11,7 @@
 
 === Task 2
   ok   [2] capture contains a handshake  - 2 SYN packets
- FAIL  [2] B1 two or more labelled networks  - Ethernet - evening first session
+  ok   [2] B1 two or more labelled networks  - Ethernet - evening first session, Phone hotspot - WLAN
   ok   [2] B2 five runs each
 
 === Task 3
@@ -22,4 +22,4 @@
   ok   [3] goodput share of baseline  - 98%
  skip  [3] R5 argument in observation.md  - graded by a human
 
-  7 passed, 1 failed, 1 skipped
+  8 passed, 0 failed, 1 skipped

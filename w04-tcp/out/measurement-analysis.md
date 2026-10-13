@@ -1,6 +1,6 @@
 # Task 2 measurement evidence
 
-Status: Part A complete; Part B has one actual network session and needs a second.
+Status: Part A complete; Part B complete with five valid transfers on each of two networks.
 
 ## Capture provenance and scope
 
@@ -40,14 +40,35 @@ Median 184.024 Mbps; range 132.175-207.264 Mbps; range width 75.089 Mbps; relati
 
 Scheduling, variable queueing, DNS/edge selection, retransmissions and server response time can vary between runs. In these samples the two fastest transfers also have the shorter handshakes, consistent with RTT affecting ACK-clocked growth; five observations cannot establish RTT as the sole cause. A larger RTT requires more in-flight bytes for the same throughput, and slows congestion-window growth per second during slow start.
 
-## Required remaining session
+## Second measurement session and comparison
 
-Switch to a second authorized network and run from `w04-tcp`:
+After switching to the phone hotspot, both Ethernet and WLAN were initially listed as connected. An unbound preliminary five-run session was excluded because its network path was not established. The retained second session explicitly used `--interface 172.20.10.5 --port-base 55220`; all five curl results confirm local address 172.20.10.5 on WLAN (hotspot gateway 172.20.10.1) and remote address 172.66.0.218. This avoids mistaking two Ethernet measurements for two networks. The first session occurred before WLAN was connected; its script did not yet record local/remote addresses.
+
+Second session timestamp: 2026-10-13 21:32:30 (host local clock). The target, payload size, HTTP version, IPv4 setting and timing definitions match the first session.
+
+| Run | Mbps | TCP handshake (ms) | Total (s) |
+|---|---:|---:|---:|
+| 1 | 43.859 | 40.655 | 0.912022 |
+| 2 | 44.795 | 32.161 | 0.892953 |
+| 3 | 52.912 | 44.196 | 0.755969 |
+| 4 | 50.434 | 47.371 | 0.793122 |
+| 5 | 47.969 | 164.141 | 0.833880 |
+
+| Network | Median Mbps | Min-max Mbps | Relative spread | Median handshake |
+|---|---:|---:|---:|---:|
+| Ethernet - evening first session | 184.024 | 132.175-207.264 | 40.80% | 13.170 ms |
+| Phone hotspot - WLAN | 47.969 | 43.859-52.912 | 18.87% | 44.196 ms |
+
+The hotspot median handshake is 3.36 times the Ethernet value, and its median throughput is 73.93% lower. Longer RTT means ACK feedback returns less often, so slow start takes longer in elapsed time to grow the congestion window; for a fixed in-flight window, rate is approximately window/RTT. The direction of this comparison is consistent with that mechanism, but it is not a controlled estimate of RTT alone: mobile capacity, radio scheduling, queueing and endpoint response delays also differ.
+
+The hotspot handshake ranges from 32.161 to 164.141 ms. Its fifth run has the longest handshake but not the lowest overall throughput, illustrating that setup time and the subsequent data-transfer rate both matter. Variation may arise from wireless scheduling, changing queues and server response times. Without a hotspot packet capture these individual causes cannot be separated. Five runs provide a spread, not a stable capacity guarantee.
+
+## Reproduction
 
 ```text
-python task2_measure.py --label "phone tethering" --port-base 55120
+python task2_measure.py --label "network description" --interface LOCAL_IP --port-base 55320
 python test_tasks.py
 python ../check.py w04
 ```
 
-Use a truthful label. If only one network is available, the assignment permits two very different times of day, labelled as such; this only measures time variation, not a network difference. After collecting the second session, add its median, spread, median handshake time and a comparison here and in observation.md. Do not submit this partial state as complete.
+Choose the actual local address of the intended adapter and an unused port range; each run downloads 5,000,000 bytes. Do not rerun merely to obtain a nicer result.

@@ -24,17 +24,19 @@ TARGET = "https://speed.cloudflare.com/__down?bytes=5000000"
 REPEATS = 5
 
 
-def one_run(local_port):
+def one_run(local_port, interface=None):
     """One transfer. Returns (seconds, bytes, curl's own timing breakdown)."""
-    fmt = "%{time_namelookup} %{time_connect} %{time_starttransfer} %{time_total} %{size_download}"
+    fmt = "%{time_namelookup} %{time_connect} %{time_starttransfer} %{time_total} %{size_download} %{local_ip} %{remote_ip}"
     r = subprocess.run(
         ["curl", "--fail", "--show-error", "--silent", "--http1.1", "--ipv4",
          "--connect-timeout", "15", "--max-time", "120",
-         "--local-port", str(local_port), "-o", os.devnull, "-w", fmt, TARGET],
+         "--local-port", str(local_port), "-o", os.devnull, "-w", fmt]
+        + (["--interface", interface] if interface else []) + [TARGET],
         capture_output=True, text=True)
     if r.returncode != 0 or not r.stdout.strip():
         raise RuntimeError(f"curl failed: {r.stderr.strip() or r.returncode}")
-    dns, conn, first, total, size = (float(x) for x in r.stdout.split())
+    fields = r.stdout.split()
+    dns, conn, first, total, size = (float(x) for x in fields[:5])
     if int(size) != 5000000:
         raise RuntimeError(f"Expected 5000000 bytes, received {int(size)}")
     return {
@@ -44,6 +46,8 @@ def one_run(local_port):
         "total_s": total,
         "bytes": int(size),
         "mbps": int(size) * 8 / total / 1e6 if total else 0,
+        "local_ip": fields[5],
+        "remote_ip": fields[6],
     }
 
 
@@ -54,12 +58,13 @@ def main():
     p.add_argument("--repeats", type=int, default=REPEATS)
     p.add_argument("--port-base", type=int, default=55020,
                    help="first local TCP port; choose a fresh range for each session")
+    p.add_argument("--interface", help="bind to this local IP or network interface")
     a = p.parse_args()
     os.makedirs(OUT, exist_ok=True)
 
     runs = []
     for i in range(a.repeats):
-        r = one_run(a.port_base + i)
+        r = one_run(a.port_base + i, a.interface)
         runs.append(r)
         print(f"  {i + 1}/{a.repeats}  {r['mbps']:7.2f} Mbps   "
               f"handshake {r['connect_s'] * 1000:6.1f} ms   "
@@ -71,6 +76,7 @@ def main():
         "label": a.label,
         "when": time.strftime("%Y-%m-%d %H:%M:%S"),
         "target": TARGET,
+        "interface": a.interface,
         "runs": runs,
         "mbps_median": statistics.median(mbps),
         "mbps_min": min(mbps),
