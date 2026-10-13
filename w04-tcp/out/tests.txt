@@ -1,0 +1,25 @@
+
+=== Task 1
+  bytes    sent 2000   received 2000
+  channel  {'sent': 323, 'lost': 40, 'duplicated': 8, 'delivered': 291}
+  result   IDENTICAL
+  ok   [1] transfer seed=246 arrives identical
+  bytes    sent 2000   received 2000
+  channel  {'sent': 299, 'lost': 29, 'duplicated': 9, 'delivered': 279}
+  result   IDENTICAL
+  ok   [1] transfer seed=999 arrives identical
+
+=== Task 2
+  ok   [2] capture contains a handshake  - 2 SYN packets
+ FAIL  [2] B1 two or more labelled networks  - Ethernet - evening first session
+  ok   [2] B2 five runs each
+
+=== Task 3
+  baseline   goodput  986.8/1000 slots   loss  37.4%   retx  2340   avg queue   8.8
+  yours      goodput  964.0/1000 slots   loss   0.5%   retx    18   avg queue   4.5
+  ok   [3] R3 loss at most 5%  - 0.5%
+  ok   [3] R4 average queue at most 5.0  - 4.5
+  ok   [3] goodput share of baseline  - 98%
+ skip  [3] R5 argument in observation.md  - graded by a human
+
+  7 passed, 1 failed, 1 skipped

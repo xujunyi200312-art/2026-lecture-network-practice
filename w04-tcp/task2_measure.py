@@ -24,15 +24,19 @@ TARGET = "https://speed.cloudflare.com/__down?bytes=5000000"
 REPEATS = 5
 
 
-def one_run():
+def one_run(local_port):
     """One transfer. Returns (seconds, bytes, curl's own timing breakdown)."""
     fmt = "%{time_namelookup} %{time_connect} %{time_starttransfer} %{time_total} %{size_download}"
     r = subprocess.run(
-        ["curl", "-s", "-o", os.devnull, "-w", fmt, TARGET],
+        ["curl", "--fail", "--show-error", "--silent", "--http1.1", "--ipv4",
+         "--connect-timeout", "15", "--max-time", "120",
+         "--local-port", str(local_port), "-o", os.devnull, "-w", fmt, TARGET],
         capture_output=True, text=True)
     if r.returncode != 0 or not r.stdout.strip():
         raise RuntimeError(f"curl failed: {r.stderr.strip() or r.returncode}")
     dns, conn, first, total, size = (float(x) for x in r.stdout.split())
+    if int(size) != 5000000:
+        raise RuntimeError(f"Expected 5000000 bytes, received {int(size)}")
     return {
         "dns_s": dns,
         "connect_s": conn - dns,        # this is your TCP handshake
@@ -48,12 +52,14 @@ def main():
     p.add_argument("--label", required=True,
                    help='where you are, e.g. "campus wifi" or "tethering"')
     p.add_argument("--repeats", type=int, default=REPEATS)
+    p.add_argument("--port-base", type=int, default=55020,
+                   help="first local TCP port; choose a fresh range for each session")
     a = p.parse_args()
     os.makedirs(OUT, exist_ok=True)
 
     runs = []
     for i in range(a.repeats):
-        r = one_run()
+        r = one_run(a.port_base + i)
         runs.append(r)
         print(f"  {i + 1}/{a.repeats}  {r['mbps']:7.2f} Mbps   "
               f"handshake {r['connect_s'] * 1000:6.1f} ms   "

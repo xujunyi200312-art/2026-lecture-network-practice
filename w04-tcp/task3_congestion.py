@@ -54,11 +54,24 @@ class YourControl:
     """
 
     def __init__(self):
-        self.window = 1
-        raise NotImplementedError("write your congestion control")
+        self.window = 1.0
+        # End exponential startup conservatively; probe further using ACKs.
+        self.threshold = 16.0
+        self.recovery_acks = 0
+        self.backoff = 0.75
 
     def on_ack(self):
-        raise NotImplementedError
+        if self.recovery_acks:
+            self.recovery_acks -= 1
+            return
+        if self.window < self.threshold:
+            self.window += 1.0
+        else:
+            self.window += 1.0 / self.window
 
     def on_loss(self):
-        raise NotImplementedError
+        # Several timeouts can describe the same overfull flight.
+        if not self.recovery_acks:
+            self.window = max(2.0, self.window * self.backoff)
+            self.threshold = self.window
+            self.recovery_acks = max(1, int(self.window))

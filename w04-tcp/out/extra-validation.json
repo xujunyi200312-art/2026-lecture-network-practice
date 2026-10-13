@@ -1,0 +1,81 @@
+{
+  "reliable_delivery_cases": 260,
+  "examples": [
+    {
+      "seed": 246,
+      "size": 2000,
+      "steps": 849,
+      "data_channel": {
+        "sent": 323,
+        "lost": 40,
+        "duplicated": 8,
+        "delivered": 291
+      },
+      "ack_channel": {
+        "sent": 291,
+        "lost": 34,
+        "duplicated": 9,
+        "delivered": 266
+      }
+    },
+    {
+      "seed": 999,
+      "size": 2000,
+      "steps": 659,
+      "data_channel": {
+        "sent": 299,
+        "lost": 29,
+        "duplicated": 9,
+        "delivered": 279
+      },
+      "ack_channel": {
+        "sent": 279,
+        "lost": 23,
+        "duplicated": 9,
+        "delivered": 265
+      }
+    }
+  ],
+  "baseline": {
+    "goodput": 986.75,
+    "loss": 0.37395685718784444,
+    "retx": 2340,
+    "queue": 8.7625
+  },
+  "backoff_comparison": {
+    "0.5": {
+      "goodput": 837.25,
+      "loss": 0.0035408675125405725,
+      "retx": 12,
+      "queue": 3.061
+    },
+    "0.6": {
+      "goodput": 891.5,
+      "loss": 0.003883495145631068,
+      "retx": 14,
+      "queue": 3.285
+    },
+    "0.7": {
+      "goodput": 945.25,
+      "loss": 0.004442121766396656,
+      "retx": 16,
+      "queue": 4.0095
+    },
+    "0.75": {
+      "goodput": 964.0,
+      "loss": 0.004611837048424289,
+      "retx": 18,
+      "queue": 4.4695
+    },
+    "0.8": {
+      "goodput": 975.25,
+      "loss": 0.005573853559665568,
+      "retx": 21,
+      "queue": 5.20675
+    }
+  },
+  "last_1000_ack_windows": {
+    "min": 18.217654792203128,
+    "max": 31.944406885957516
+  }
+}
