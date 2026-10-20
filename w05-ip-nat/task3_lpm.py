@@ -55,10 +55,30 @@ class YourTable:
     """
 
     def __init__(self):
-        raise NotImplementedError("write your table")
+        self.groups = {}
+        self.search = []
+        self.missing = object()
 
     def add(self, network, prefix_len, next_hop):
-        raise NotImplementedError
+        if not 0 <= prefix_len <= 32 or not 0 <= network <= 0xFFFFFFFF:
+            raise ValueError("invalid IPv4 network or prefix length")
+        mask = (0xFFFFFFFF << (32 - prefix_len)) & 0xFFFFFFFF
+        # A noncanonical network never matches LinearTable either.
+        if network & mask != network:
+            return
+        if prefix_len not in self.groups:
+            self.groups[prefix_len] = {}
+            self.search = [
+                ((0xFFFFFFFF << (32 - plen)) & 0xFFFFFFFF, self.groups[plen])
+                for plen in sorted(self.groups, reverse=True)
+            ]
+        # Equal prefixes retain the first route, just like LinearTable.
+        self.groups[prefix_len].setdefault(network, next_hop)
 
     def lookup(self, address):
-        raise NotImplementedError
+        missing = self.missing
+        for mask, group in self.search:
+            hop = group.get(address & mask, missing)
+            if hop is not missing:
+                return hop
+        return None

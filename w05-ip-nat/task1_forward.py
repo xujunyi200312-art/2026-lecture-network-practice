@@ -16,6 +16,25 @@ exactly the thing you are supposed to understand this week.
 import argparse
 
 
+def address_int(address):
+    parts = address.split(".")
+    if len(parts) != 4:
+        raise ValueError("IPv4 requires four decimal octets")
+    value = 0
+    for part in parts:
+        if not part or not part.isascii() or not part.isdecimal():
+            raise ValueError("invalid IPv4 octet")
+        octet = int(part)
+        if octet > 255:
+            raise ValueError("IPv4 octet outside 0-255")
+        value = (value << 8) | octet
+    return value
+
+
+def address_text(value):
+    return ".".join(str((value >> shift) & 255) for shift in (24, 16, 8, 0))
+
+
 def parse_cidr(cidr):
     """'163.152.6.0/24' -> (network as int, prefix length).
 
@@ -23,7 +42,16 @@ def parse_cidr(cidr):
     whose host bits are set when they should not be (163.152.6.5/24 is a
     common way to write a host, but it is not a network).
     """
-    raise NotImplementedError("parse a CIDR block")
+    address, length = cidr.split("/")
+    if not length.isascii() or not length.isdecimal():
+        raise ValueError("invalid prefix length")
+    plen = int(length)
+    if not 0 <= plen <= 32:
+        raise ValueError("prefix length outside 0-32")
+    network = address_int(address)
+    if network & ((1 << (32 - plen)) - 1):
+        raise ValueError("network address has host bits set")
+    return network, plen
 
 
 def network_range(cidr):
@@ -32,7 +60,13 @@ def network_range(cidr):
     Careful at the edges. /31 and /32 do not have a usable host range in the
     ordinary sense - decide what you return and say so in observation.md.
     """
-    raise NotImplementedError("compute the range")
+    network, plen = parse_cidr(cidr)
+    last = network | ((1 << (32 - plen)) - 1)
+    # /31 uses both endpoint addresses; /32 denotes a single host.
+    first_host, last_host = (network, last) if plen >= 31 else (network + 1, last - 1)
+    # The third field is the all-host-bits-one endpoint for /31 and /32,
+    # not a directed broadcast on those prefixes.
+    return tuple(map(address_text, (first_host, last_host, last)))
 
 
 class ForwardingTable:
@@ -45,11 +79,21 @@ class ForwardingTable:
     length, the table is malformed - say what you do.
     """
 
+    def __init__(self):
+        self.entries = []
+
     def add(self, cidr, next_hop):
-        raise NotImplementedError
+        network, plen = parse_cidr(cidr)
+        self.entries.append((network, plen, next_hop))
 
     def lookup(self, address):
-        raise NotImplementedError
+        value = address_int(address)
+        best_length, best_hop = -1, None
+        for network, plen, hop in self.entries:
+            mask = (0xFFFFFFFF << (32 - plen)) & 0xFFFFFFFF
+            if value & mask == network and plen > best_length:
+                best_length, best_hop = plen, hop
+        return best_hop
 
 
 # ------------------------------------------------------------------- harness
