@@ -1,0 +1,5 @@
+PASS: Task 1 unreachable/isolated/zero-weight cases.
+PASS: 9,000 additional events on 30 graphs, including ties and disconnected nodes.
+Fair timing: neither run includes correctness-oracle time:
+  baseline       SPF runs  1001   wall   1.20s
+  yours          SPF runs   346   wall   0.45s

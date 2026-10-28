@@ -1,0 +1,100 @@
+Local measurement: 2026-10-28T16:46:30.851784+08:00
+Targets follow task2.md; actual geographic location is unverified.
+Maximum 30 hops; 500 ms per probe; no reverse DNS.
+
+Command: tracert -d -h 30 -w 500 www.korea.ac.kr
+
+Tracing route to www.korea.ac.kr [163.152.6.10]
+over a maximum of 30 hops:
+
+  1    <1 ms    <1 ms    <1 ms  192.168.219.1 
+  2     3 ms     3 ms     3 ms  112.145.216.178 
+  3     4 ms     3 ms     3 ms  211.170.41.85 
+  4    10 ms    10 ms     9 ms  100.110.10.1 
+  5    10 ms    10 ms    11 ms  210.107.126.90 
+  6    12 ms    12 ms    12 ms  116.43.128.66 
+  7    10 ms     9 ms    11 ms  10.222.32.52 
+  8    10 ms    10 ms     9 ms  10.222.10.227 
+  9     *        *        *     Request timed out.
+ 10     *        *        *     Request timed out.
+ 11     *        *        *     Request timed out.
+ 12     *        *        *     Request timed out.
+ 13     *        *        *     Request timed out.
+ 14     *        *        *     Request timed out.
+ 15     *        *        *     Request timed out.
+ 16     *        *        *     Request timed out.
+ 17     *        *        *     Request timed out.
+ 18     *        *        *     Request timed out.
+ 19     *        *        *     Request timed out.
+ 20     *        *        *     Request timed out.
+ 21     *        *        *     Request timed out.
+ 22     *        *        *     Request timed out.
+ 23     *        *        *     Request timed out.
+ 24     *        *        *     Request timed out.
+ 25     *        *        *     Request timed out.
+ 26     *        *        *     Request timed out.
+ 27     *        *        *     Request timed out.
+ 28     *        *        *     Request timed out.
+ 29     *        *        *     Request timed out.
+ 30     *        *        *     Request timed out.
+
+Trace complete.
+
+
+Command: tracert -d -h 30 -w 500 www.stanford.edu
+
+Tracing route to stanford.netlifyglobalcdn.com [2406:da12:53f:c100::1f5]
+over a maximum of 30 hops:
+
+  1    <1 ms    <1 ms    <1 ms  2406:5900:5097:5cfb::1 
+  2     3 ms     3 ms     3 ms  2406:5900:4000:396b::1 
+  3     1 ms     2 ms     2 ms  2001:270:fb42:10:203:14:184:1 
+  4     3 ms     3 ms     3 ms  2001:270:fb42:100:108:12:100:1 
+  5     6 ms     5 ms     4 ms  2001:270:fb00:1:213:115:68:1 
+  6     6 ms     5 ms     6 ms  2001:270:fb00:1:208:173:124:2 
+  7     5 ms     5 ms    22 ms  2001:270:fff:102f::66 
+  8    41 ms    35 ms     *     2400:6500:0:4::5b 
+  9     6 ms     7 ms     6 ms  2400:6500:0:900e::3 
+ 10    10 ms     9 ms    22 ms  2400:6500:0:4::1e 
+ 11     7 ms     6 ms     6 ms  2620:107:4000:d050::f003:200e 
+ 12     7 ms     7 ms     8 ms  2620:107:4000:cfff::f207:c7a1 
+ 13     8 ms     7 ms     7 ms  2620:107:4000:5c48::f007:f804 
+ 14     7 ms     7 ms     8 ms  2620:107:4000:cfff::f21a:d211 
+ 15     *        *        *     Request timed out.
+ 16     *        *        *     Request timed out.
+ 17     *        *        *     Request timed out.
+ 18     *        *        *     Request timed out.
+ 19     *        *        *     Request timed out.
+ 20     *        *        *     Request timed out.
+ 21     *        *        *     Request timed out.
+ 22     *        *        *     Request timed out.
+ 23     *        *        *     Request timed out.
+ 24     *        *        *     Request timed out.
+ 25     *        *        *     Request timed out.
+ 26     *        *        *     Request timed out.
+ 27     *        *        *     Request timed out.
+ 28     *        *        *     Request timed out.
+ 29     *        *        *     Request timed out.
+ 30     *        *        *     Request timed out.
+
+Trace complete.
+
+
+Command: tracert -d -h 30 -w 500 1.1.1.1
+
+Tracing route to 1.1.1.1 over a maximum of 30 hops
+
+  1    <1 ms    <1 ms    <1 ms  192.168.219.1 
+  2     5 ms     4 ms     4 ms  112.145.216.178 
+  3     5 ms     5 ms     5 ms  211.53.2.225 
+  4     8 ms     8 ms     7 ms  100.110.2.1 
+  5    16 ms     9 ms     9 ms  100.68.7.82 
+  6     9 ms     8 ms     8 ms  100.68.83.118 
+  7    10 ms    10 ms     9 ms  100.68.89.38 
+  8     8 ms     8 ms     8 ms  211.234.118.34 
+  9    23 ms    12 ms    16 ms  203.246.162.134 
+ 10     *        *        *     Request timed out.
+ 11    10 ms    15 ms    11 ms  141.101.82.27 
+ 12    12 ms    11 ms    11 ms  1.1.1.1 
+
+Trace complete.
