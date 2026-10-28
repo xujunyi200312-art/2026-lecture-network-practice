@@ -14,6 +14,7 @@ in the packet. Build it.
     python3 task1_linkstate.py --verify
 """
 import argparse
+import heapq
 
 # Undirected weighted graph: node -> {neighbour: cost}
 TOPOLOGY = {
@@ -33,7 +34,8 @@ def dijkstra(graph, source):
 
     You write the loop. `heapq` is allowed; `networkx` is not.
     """
-    raise NotImplementedError("implement Dijkstra")
+    distances, _ = _shortest_paths(graph, source)
+    return {node: cost for node, cost in distances.items() if node != source}
 
 
 def forwarding_table(graph, source):
@@ -48,7 +50,32 @@ def forwarding_table(graph, source):
     works, but think about what a router does when two shortest paths tie, and
     pick a rule. Say which in observation.md.
     """
-    raise NotImplementedError("implement the forwarding table")
+    _, hops = _shortest_paths(graph, source)
+    return hops
+
+
+def _shortest_paths(graph, source):
+    # Strict improvements only; equal costs retain the first discovered route.
+    # Sorted neighbours and (distance, node) heap order make this deterministic.
+    distances, hops = {source: 0}, {}
+    queue = [(0, source)]
+    done = set()
+    while queue:
+        cost, node = heapq.heappop(queue)
+        if node in done:
+            continue
+        done.add(node)
+        for neighbour, weight in sorted(graph.get(node, {}).items()):
+            if weight < 0:
+                raise ValueError("Dijkstra requires nonnegative weights")
+            if neighbour in done:
+                continue
+            candidate = cost + weight
+            if candidate < distances.get(neighbour, float("inf")):
+                distances[neighbour] = candidate
+                hops[neighbour] = neighbour if node == source else hops[node]
+                heapq.heappush(queue, (candidate, neighbour))
+    return distances, hops
 
 
 def link_down(graph, a, b):

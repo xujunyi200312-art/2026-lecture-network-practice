@@ -27,7 +27,7 @@ import heapq
 SPF_RUNS = 0
 
 
-def dijkstra_table(graph, source):
+def dijkstra_table(graph, source, *, state=None):
     """Reference shortest-path-first. Returns {destination: first_hop}.
 
     Use THIS function whenever you need a full recompute. Rolling your own to
@@ -36,6 +36,7 @@ def dijkstra_table(graph, source):
     global SPF_RUNS
     SPF_RUNS += 1
     best = {source: (0, None)}
+    parents = {}
     pq, done = [(0, source, None)], set()
     while pq:
         cost, node, first_hop = heapq.heappop(pq)
@@ -49,7 +50,14 @@ def dijkstra_table(graph, source):
             hop = nbr if node == source else first_hop
             if cost + w < best.get(nbr, (float("inf"), None))[0]:
                 best[nbr] = (cost + w, hop)
+                parents[nbr] = node
                 heapq.heappush(pq, (cost + w, nbr, hop))
+    if state is not None:
+        state.clear()
+        state["distances"] = {node: cost for node, (cost, _) in best.items()}
+        state["parents"] = parents
+        state["tree_edges"] = {frozenset((node, parent))
+                               for node, parent in parents.items()}
     return {d: h for d, (_, h) in best.items() if d != source and h}
 
 
@@ -88,7 +96,48 @@ class YourRouter:
     """
 
     def __init__(self, graph, source):
-        raise NotImplementedError("write your router")
+        self.graph = {node: dict(edges) for node, edges in graph.items()}
+        self.source = source
+        self.state = {}
+        self._recompute()
+
+    def _recompute(self):
+        # Collect metadata in the same counted SPF, never run a hidden SPF.
+        self.table = dijkstra_table(self.graph, self.source, state=self.state)
 
     def link_change(self, a, b, cost):
-        raise NotImplementedError
+        old_cost = self.graph.get(a, {}).get(b)
+        if old_cost == cost:
+            return
+        self.graph.setdefault(a, {})
+        self.graph.setdefault(b, {})
+        if cost is None:
+            self.graph[a].pop(b, None)
+            self.graph[b].pop(a, None)
+        else:
+            if cost <= 0:
+                raise ValueError("OSPF link costs must be positive")
+            self.graph[a][b] = self.graph[b][a] = cost
+
+        if cost is None or (old_cost is not None and cost > old_cost):
+            # An unused worsening edge cannot invalidate our chosen tree.
+            affected = frozenset((a, b)) in self.state["tree_edges"]
+        else:
+            distances = self.state["distances"]
+            da = distances.get(a, float("inf"))
+            db = distances.get(b, float("inf"))
+            def improves(start, end, start_distance, end_distance):
+                if start_distance == float("inf"):
+                    return False
+                candidate = start_distance + cost
+                if candidate != end_distance:
+                    return candidate < end_distance
+                # With positive weights, all possible parents settle before
+                # their child. The reference picks the earliest (cost, name).
+                parent = self.state["parents"].get(end)
+                return (parent is not None and
+                        (start_distance, start) < (distances[parent], parent))
+
+            affected = improves(a, b, da, db) or improves(b, a, db, da)
+        if affected:
+            self._recompute()
