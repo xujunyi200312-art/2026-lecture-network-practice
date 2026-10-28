@@ -12,25 +12,37 @@ services:
   # docker compose --profile routing up -d
   r1:
     profiles: ["routing"]
-    image: frrouting/frr:v9.1.0
+    image: quay.io/frrouting/frr:9.1.0
     privileged: true
     volumes:
       - ./w06-routing/topology/r1:/etc/frr
-    networks: [net_a, net_b]
+    networks:
+      net_a:
+        interface_name: eth0
+      net_b:
+        interface_name: eth1
   r2:
     profiles: ["routing"]
-    image: frrouting/frr:v9.1.0
+    image: quay.io/frrouting/frr:9.1.0
     privileged: true
     volumes:
       - ./w06-routing/topology/r2:/etc/frr
-    networks: [net_b, net_c]
+    networks:
+      net_b:
+        interface_name: eth0
+      net_c:
+        interface_name: eth1
   r3:
     profiles: ["routing"]
-    image: frrouting/frr:v9.1.0
+    image: quay.io/frrouting/frr:9.1.0
     privileged: true
     volumes:
       - ./w06-routing/topology/r3:/etc/frr
-    networks: [net_c, net_a]
+    networks:
+      net_c:
+        interface_name: eth0
+      net_a:
+        interface_name: eth1
 
 networks:
   net_a:

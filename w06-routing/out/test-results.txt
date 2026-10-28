@@ -16,16 +16,16 @@
 
 === Task 2
   ok   [2] A1 three traceroutes  - 4,489 bytes
- FAIL  [2] B1 tables before the cut  - out/route-before.txt missing
- FAIL  [2] B3 tables after the cut  - out/route-after.txt missing
- FAIL  [2] B4 measured reconvergence time  - out/reconverge.txt missing
+  ok   [2] B1 tables before the cut  - 3,104 bytes
+  ok   [2] B3 tables after the cut  - 2,764 bytes
+  ok   [2] B4 measured reconvergence time  - 1,397 bytes
   ok   [2] traceroute output has hops  - 72 hop lines
 
 === Task 3
-  baseline       SPF runs  1001   wall   1.18s
-  yours          SPF runs   346   wall   1.65s   wrong after 0 event(s)
+  baseline       SPF runs  1001   wall   1.21s
+  yours          SPF runs   346   wall   1.68s   wrong after 0 event(s)
   ok   [3] R3 table correct after every event  - 0 wrong
   ok   [3] R4 fewer SPF runs  - 65% avoided
  skip  [3] R5 wall-time argument in observation.md  - graded by a human
 
-  6 passed, 3 failed, 1 skipped
+  9 passed, 0 failed, 1 skipped

@@ -1,11 +1,10 @@
 == w06-routing/out/ ==
 
   [ok]     traceroute.txt       domestic, overseas, anycast  (4,489 bytes)
-  [missing]route-before.txt     tables before the cut
-  [missing]route-after.txt      tables after the cut
-  [missing]reconverge.txt       measured reconvergence time
+  [ok]     route-before.txt     tables before the cut  (3,104 bytes)
+  [ok]     route-after.txt      tables after the cut  (2,764 bytes)
+  [ok]     reconverge.txt       measured reconvergence time  (1,397 bytes)
   [ok]     bench.txt            python3 bench.py --yours  (279 bytes)
-  [ok]     observation.md       2-3 lines per task  (2,222 bytes)
+  [ok]     observation.md       2-3 lines per task  (2,496 bytes)
 
-
-  3 missing: route-before.txt, route-after.txt, reconverge.txt
+  Format check passed. Whether it is right is up to you.

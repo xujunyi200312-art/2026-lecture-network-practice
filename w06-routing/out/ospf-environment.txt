@@ -1,0 +1,223 @@
+Client: Docker Engine - Community
+ Version:           29.9.2
+ API version:       1.56
+ Go version:        go1.26.10
+ Git commit:        a82e528
+ Built:             Tue Oct 20 18:44:40 2026
+ OS/Arch:           linux/amd64
+ Context:           default
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          29.9.2
+  API version:      1.56 (minimum version 1.40)
+  Go version:       go1.26.10
+  Git commit:       0367cbe
+  Built:            Tue Oct 20 18:44:40 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          v2.4.2
+  GitCommit:        b7a25261e029d68978bbf290df0a62fc819b3c51
+ runc:
+  Version:          1.5.2
+  GitCommit:        v1.5.2-0-g29dd3dc2
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+Docker Compose version v5.6.1
+Linux DESKTOP-K713J40 6.18.40.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Fri Jul 31 22:12:15 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+
+Interface addresses: {
+  "r1": {
+    "eth0": "172.19.0.3",
+    "eth1": "172.20.0.3"
+  },
+  "r2": {
+    "eth1": "172.21.0.2",
+    "eth0": "172.20.0.2"
+  },
+  "r3": {
+    "eth0": "172.21.0.3",
+    "eth1": "172.19.0.2"
+  }
+}
+===== r1 =====
+FRRouting 9.1_git (15a3952c6bd0) on Linux(6.18.40.1-microsoft-standard-WSL2).
+Copyright 1996-2005 Kunihiro Ishiguro, et al.
+configured with:
+    '--prefix=/usr' '--sbindir=/usr/lib/frr' '--sysconfdir=/etc/frr' '--libdir=/usr/lib' '--localstatedir=/var/run/frr' '--enable-rpki' '--enable-vtysh' '--enable-multipath=64' '--enable-vty-group=frrvty' '--enable-user=frr' '--enable-group=frr' '--enable-pcre2posix' '--enable-scripting' 'CC=gcc' 'CXX=g++'
+eth0 is up
+  ifindex 2, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 172.19.0.3/16, Broadcast 172.19.255.255, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 1.1.1.1, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State Backup, Priority 1
+  Designated Router (ID) 3.3.3.3 Interface Address 172.19.0.2/16
+  Backup Designated Router (ID) 1.1.1.1, Interface Address 172.19.0.3
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 4.142s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+  Graceful Restart hello delay: 10s
+eth1 is up
+  ifindex 3, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 172.20.0.3/16, Broadcast 172.20.255.255, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 1.1.1.1, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State Backup, Priority 1
+  Designated Router (ID) 2.2.2.2 Interface Address 172.20.0.2/16
+  Backup Designated Router (ID) 1.1.1.1, Interface Address 172.20.0.3
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 4.142s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+  Graceful Restart hello delay: 10s
+
+Building configuration...
+
+Current configuration:
+!
+frr version 9.1_git
+frr defaults traditional
+hostname 15a3952c6bd0
+domainname localdomain
+no ipv6 forwarding
+service integrated-vtysh-config
+!
+interface eth0
+ description net_a (r1 - r3)
+ ip ospf cost 10
+exit
+!
+interface eth1
+ description net_b (r1 - r2)
+ ip ospf cost 10
+exit
+!
+router ospf
+ ospf router-id 1.1.1.1
+ network 0.0.0.0/0 area 0
+exit
+!
+end
+
+===== r2 =====
+FRRouting 9.1_git (1967368d740f) on Linux(6.18.40.1-microsoft-standard-WSL2).
+Copyright 1996-2005 Kunihiro Ishiguro, et al.
+configured with:
+    '--prefix=/usr' '--sbindir=/usr/lib/frr' '--sysconfdir=/etc/frr' '--libdir=/usr/lib' '--localstatedir=/var/run/frr' '--enable-rpki' '--enable-vtysh' '--enable-multipath=64' '--enable-vty-group=frrvty' '--enable-user=frr' '--enable-group=frr' '--enable-pcre2posix' '--enable-scripting' 'CC=gcc' 'CXX=g++'
+eth0 is up
+  ifindex 3, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 172.20.0.2/16, Broadcast 172.20.255.255, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 2.2.2.2, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State DR, Priority 1
+  Designated Router (ID) 2.2.2.2 Interface Address 172.20.0.2/16
+  Backup Designated Router (ID) 1.1.1.1, Interface Address 172.20.0.3
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 3.605s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+  Graceful Restart hello delay: 10s
+eth1 is up
+  ifindex 2, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 172.21.0.2/16, Broadcast 172.21.255.255, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 2.2.2.2, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State Backup, Priority 1
+  Designated Router (ID) 3.3.3.3 Interface Address 172.21.0.3/16
+  Backup Designated Router (ID) 2.2.2.2, Interface Address 172.21.0.2
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 3.605s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+  Graceful Restart hello delay: 10s
+
+Building configuration...
+
+Current configuration:
+!
+frr version 9.1_git
+frr defaults traditional
+hostname 1967368d740f
+domainname localdomain
+no ipv6 forwarding
+service integrated-vtysh-config
+!
+interface eth0
+ description net_b (r2 - r1)
+ ip ospf cost 10
+exit
+!
+interface eth1
+ description net_c (r2 - r3)
+ ip ospf cost 10
+exit
+!
+router ospf
+ ospf router-id 2.2.2.2
+ network 0.0.0.0/0 area 0
+exit
+!
+end
+
+===== r3 =====
+FRRouting 9.1_git (1c8bc6301791) on Linux(6.18.40.1-microsoft-standard-WSL2).
+Copyright 1996-2005 Kunihiro Ishiguro, et al.
+configured with:
+    '--prefix=/usr' '--sbindir=/usr/lib/frr' '--sysconfdir=/etc/frr' '--libdir=/usr/lib' '--localstatedir=/var/run/frr' '--enable-rpki' '--enable-vtysh' '--enable-multipath=64' '--enable-vty-group=frrvty' '--enable-user=frr' '--enable-group=frr' '--enable-pcre2posix' '--enable-scripting' 'CC=gcc' 'CXX=g++'
+eth0 is up
+  ifindex 2, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 172.21.0.3/16, Broadcast 172.21.255.255, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 3.3.3.3, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State DR, Priority 1
+  Designated Router (ID) 3.3.3.3 Interface Address 172.21.0.3/16
+  Backup Designated Router (ID) 2.2.2.2, Interface Address 172.21.0.2
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 3.453s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+  Graceful Restart hello delay: 10s
+eth1 is up
+  ifindex 3, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 172.19.0.2/16, Broadcast 172.19.255.255, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 3.3.3.3, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State DR, Priority 1
+  Designated Router (ID) 3.3.3.3 Interface Address 172.19.0.2/16
+  Backup Designated Router (ID) 1.1.1.1, Interface Address 172.19.0.3
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 3.453s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+  Graceful Restart hello delay: 10s
+
+Building configuration...
+
+Current configuration:
+!
+frr version 9.1_git
+frr defaults traditional
+hostname 1c8bc6301791
+domainname localdomain
+no ipv6 forwarding
+service integrated-vtysh-config
+!
+interface eth0
+ description net_c (r3 - r2)
+ ip ospf cost 10
+exit
+!
+interface eth1
+ description net_a (r3 - r1)
+ ip ospf cost 10
+exit
+!
+router ospf
+ ospf router-id 3.3.3.3
+ network 0.0.0.0/0 area 0
+exit
+!
+end

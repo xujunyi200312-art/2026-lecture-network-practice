@@ -1,0 +1,3 @@
+w06-routing/topology/** text eol=lf
+w06-routing/*.py text eol=lf
+w06-routing/*.sh text eol=lf

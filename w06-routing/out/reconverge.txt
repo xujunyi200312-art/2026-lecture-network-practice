@@ -1,0 +1,20 @@
+Real local Docker/FRR experiment; monotonic clock.
+Time origin: immediately before issuing the change command.
+Poll sleep: 0.2 s, plus Docker/vtysh overhead. Each sample queries three routers concurrently.
+Sampling: previous nonmatching and first matching poll completions are recorded; per-router reads are not simultaneous.
+These are observation bounds, not exact packet-level timestamps.
+Down/restore: all three complete OSPF route metrics and active next hops match the expected state.
+Cost change: r1 route to net_c changes from ECMP to r2 only; all three tables captured.
+After down measurement, wait for r2 to expire r1 before restoration; this is not included in down time.
+Hello/dead intervals: see ospf-environment.txt (10 s / 40 s).
+
+{"event": "interface_down", "lower_s": 0.0, "upper_s": 0.16508194300001833}
+{"event": "peer_neighbour_expiry", "upper_s": 33.551300326000046}
+{"event": "interface_restore", "lower_s": 14.727007836999974, "upper_s": 15.011630287000003}
+{"event": "cost_10_to_100", "lower_s": 0.0, "upper_s": 0.18155238600002122}
+
+Supplement: silent packet loss simulated by INPUT/OUTPUT DROP rules on r1 eth1 only.
+Interface remains UP; no host-network firewall rules are modified. Both rules removed afterward.
+Alternate routes on r1 and r2 first observed at 33.645213 s; previous nonmatching poll ended at 33.351113 s.
+After rules were removed, baseline routes returned by 19.361510 s.
+
